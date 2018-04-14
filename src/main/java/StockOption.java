@@ -1,0 +1,2 @@
+public class StockOption {
+}
