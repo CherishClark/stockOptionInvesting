@@ -1,7 +1,4 @@
 
-import javax.print.DocFlavor;
-import java.io.File;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -21,7 +18,7 @@ public class Main {
 
         Integer a = sc.nextInt();
 
-        Map<String, StockOption> employeesStockOptions = new HashMap<>();
+        Map<String, List<StockOption>> employeesStockOptions = new HashMap<>();
 
         for (int i = 0; i<a; i++) {
 
@@ -31,14 +28,27 @@ public class Main {
 
             StockOption parsedOption = stockOptionParser(stockOptionString);
 
-            employeesStockOptions.put(parsedOption.getEmployeeID(), parsedOption);
+            List<StockOption> listOfStockOptions;
+
+            String employeeId = parsedOption.getEmployeeID();
+
+            if (employeesStockOptions.containsKey(employeeId)) {
+
+                listOfStockOptions = employeesStockOptions.get(employeeId);
+
+            } else {
+                listOfStockOptions = new ArrayList<>();
+                employeesStockOptions.put(employeeId, listOfStockOptions);
+            }
+
+            listOfStockOptions.add(parsedOption);
+            System.out.println(employeesStockOptions.get(employeeId));
 
         }
 
         String currentMarketInfo = sc.next();
 
         printEmployeeStockOptionsMap(employeesStockOptions);
-
 
     }
 
@@ -51,6 +61,7 @@ public class Main {
         Date date = new Date();
 
         try {
+
             date = new SimpleDateFormat("yyyymmdd").parse(preDate);
 
         } catch (ParseException e) {
