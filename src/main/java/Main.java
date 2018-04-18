@@ -1,4 +1,5 @@
 
+import javax.print.DocFlavor;
 import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -20,44 +21,52 @@ public class Main {
 
         Integer a = sc.nextInt();
 
+        Map<String, StockOption> employeesStockOptions = new HashMap<>();
+
         for (int i = 0; i<a; i++) {
 
-            String stockOption = sc.next();
+            String stockOptionString = sc.next();
 
-            System.out.println(stockOption);
+            System.out.println(stockOptionString);
 
-            stockOptionParser(stockOption);
+            StockOption parsedOption = stockOptionParser(stockOptionString);
+
+            employeesStockOptions.put(parsedOption.getEmployeeID(), parsedOption);
 
         }
 
         String currentMarketInfo = sc.next();
 
+        printEmployeeStockOptionsMap(employeesStockOptions);
+
 
     }
 
-    public static void stockOptionParser(String stockOption) {
+    public static StockOption stockOptionParser(String stockOption) {
 
-       List<String> stockOptionElementsList = Arrays.asList(stockOption.split(","));
+        List<String> stockOptionElementsList = Arrays.asList(stockOption.split(","));
 
-       String employeeID = stockOptionElementsList.get(1);
-       String preDate = stockOptionElementsList.get(2).toString();
+        String employeeID = stockOptionElementsList.get(1);
+        String preDate = stockOptionElementsList.get(2).toString();
+        Date date = new Date();
 
-       try {
-           Date date = new SimpleDateFormat("yyyymmdd").parse(preDate);
-           System.out.println("date is " + date);
+        try {
+            date = new SimpleDateFormat("yyyymmdd").parse(preDate);
 
-       } catch (ParseException e) {
+        } catch (ParseException e) {
 
             e.printStackTrace();
         }
-       int amountOfStock = Integer.parseInt(stockOptionElementsList.get(3));
-        System.out.println("amount of stock is "+ amountOfStock);
-       double strikePrice = Double.parseDouble(stockOptionElementsList.get(4));
-        System.out.println("strike price is " + strikePrice);
+        int amountOfStock = Integer.parseInt(stockOptionElementsList.get(3));
 
-//       System.out.println(employeeID + " " + date + " " + amountOfStock + " " + strikePrice);
+        double strikePrice = Double.parseDouble(stockOptionElementsList.get(4));
 
-
+        return new StockOption(employeeID, date, amountOfStock, strikePrice);
 
     }
+
+    public static void printEmployeeStockOptionsMap(Map employeeStockOptions) {
+        System.out.println("Printing out stockoptions....." + employeeStockOptions);
+    }
+
 }
