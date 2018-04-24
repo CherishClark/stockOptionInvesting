@@ -1,4 +1,8 @@
 
+import javax.print.DocFlavor;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -7,6 +11,11 @@ public class Main {
 
     public static void main(String[] args) {
 
+        parseMyOptionsYouFool(System.in, System.out);
+    }
+
+    public static void parseMyOptionsYouFool(InputStream input, OutputStream output) {
+
         //    Takes in stdin list of records with
 //    current mkt date and price
 
@@ -14,7 +23,7 @@ public class Main {
 //    each record is assigned to an employee
 //    calculate profit for each employee
 //    return comma del string with employeeId and Profit
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(input);
 
         Integer a = sc.nextInt();
 
@@ -48,7 +57,30 @@ public class Main {
 
         String currentMarketInfo = sc.next();
 
+
         printEmployeeStockOptionsMap(employeesStockOptions);
+
+        PrintStream printStream = new PrintStream(output);
+        printStream.println("help");
+
+    }
+
+    public static void currentMarketInfoParser(String currentMarketInfo) {
+        List<String> currentMarketInfoElementsList = Arrays.asList(currentMarketInfo.split(","));
+
+        String Date = currentMarketInfoElementsList.get(0);
+        Double strikePrice = Double.parseDouble(currentMarketInfoElementsList.get(1));
+        Date currentDate = new Date();
+
+        try {
+
+            currentDate = new SimpleDateFormat("yyyymmdd").parse(Date);
+
+        } catch (ParseException e) {
+
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -57,17 +89,18 @@ public class Main {
         List<String> stockOptionElementsList = Arrays.asList(stockOption.split(","));
 
         String employeeID = stockOptionElementsList.get(1);
-        String preDate = stockOptionElementsList.get(2).toString();
+        String Date = stockOptionElementsList.get(2).toString();
         Date date = new Date();
 
         try {
 
-            date = new SimpleDateFormat("yyyymmdd").parse(preDate);
+            date = new SimpleDateFormat("yyyymmdd").parse(Date);
 
         } catch (ParseException e) {
 
             e.printStackTrace();
         }
+
         int amountOfStock = Integer.parseInt(stockOptionElementsList.get(3));
 
         double strikePrice = Double.parseDouble(stockOptionElementsList.get(4));
@@ -78,6 +111,19 @@ public class Main {
 
     public static void printEmployeeStockOptionsMap(Map employeeStockOptions) {
         System.out.println("Printing out stockoptions....." + employeeStockOptions);
+
+
+    }
+
+    public static void calculateProfitPerEmployee(Map employeesStockOptions, List currentMarketInfo) {
+
+//       is date today same or prior to market date?
+//        if not, ignore
+//            else calculate strike price - market price
+//                add total for employee
+//        if difference is <0, return 0
+
+
     }
 
 }

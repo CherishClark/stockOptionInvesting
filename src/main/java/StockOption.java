@@ -1,8 +1,10 @@
+
+
 import java.util.Date;
 
 public class StockOption {
     private String employeeID;
-    private Date date = new Date();
+    private Date date;
     private int amountOfStock;
     private double strikePrice;
 
@@ -11,6 +13,12 @@ public class StockOption {
         this.date = date;
         this.amountOfStock = amountOfStock;
         this.strikePrice = strikePrice;
+    }
+
+    public double calculateStockOptionProfile() {
+        System.out.println("calculating this stock option");
+
+        return 00.00;
     }
 
     public String getEmployeeID() {
