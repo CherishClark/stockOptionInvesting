@@ -57,15 +57,7 @@ public class Main {
 
         String currentMarketInfo = sc.next();
 
-
-        printEmployeeStockOptionsMap(employeesStockOptions);
-
-        PrintStream printStream = new PrintStream(output);
-        printStream.println("help");
-
-    }
-
-    public static void currentMarketInfoParser(String currentMarketInfo) {
+//        parsing current market info
         List<String> currentMarketInfoElementsList = Arrays.asList(currentMarketInfo.split(","));
 
         String Date = currentMarketInfoElementsList.get(0);
@@ -80,9 +72,20 @@ public class Main {
 
             e.printStackTrace();
         }
+// end of parsing current market info
+
+        printEmployeeStockOptionsMap(employeesStockOptions);
+
+//  to print out stdout info
+
+        PrintStream printStream = new PrintStream(output);
+        printStream.println("help");
+
+        calculateProfitPerEmployee(employeesStockOptions, strikePrice, currentDate);
 
 
     }
+
 
     public static StockOption stockOptionParser(String stockOption) {
 
@@ -115,13 +118,20 @@ public class Main {
 
     }
 
-    public static void calculateProfitPerEmployee(Map employeesStockOptions, List currentMarketInfo) {
+    public static void calculateProfitPerEmployee(Map<String, List<StockOption>> employeesStockOptions, double strikePrice, Date currentDate) {
 
-//       is date today same or prior to market date?
-//        if not, ignore
-//            else calculate strike price - market price
-//                add total for employee
-//        if difference is <0, return 0
+        employeesStockOptions.forEach((employeeID, stockOptions) -> {
+                    double employeeProfit = stockOptions.stream()
+                            .filter(stockOption -> stockOption.getDate().compareTo(currentDate) < 0)
+                            .mapToDouble(StockOption::getAmountOfStock)
+                            .sum();
+                    System.out.println("printing employee's" + employeeID + "profit " + employeeProfit);
+                }
+
+        );
+
+        System.out.println("printing current date " + currentDate + "and strike price " + strikePrice);
+
 
 
     }
