@@ -1,5 +1,3 @@
-
-import javax.print.DocFlavor;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -81,7 +79,7 @@ public class Main {
         PrintStream printStream = new PrintStream(output);
         printStream.println("help");
 
-        calculateProfitPerEmployee(employeesStockOptions, strikePrice, currentDate);
+        StockOption.determineProfitPerEmployee(employeesStockOptions, strikePrice, currentDate);
 
 
     }
@@ -118,22 +116,8 @@ public class Main {
 
     }
 
-    public static void calculateProfitPerEmployee(Map<String, List<StockOption>> employeesStockOptions, double strikePrice, Date currentDate) {
-
-        employeesStockOptions.forEach((employeeID, stockOptions) -> {
-                    double employeeProfit = stockOptions.stream()
-                            .filter(stockOption -> stockOption.getDate().compareTo(currentDate) < 0)
-                            .mapToDouble(StockOption::getAmountOfStock)
-                            .sum();
-                    System.out.println("printing employee's" + employeeID + "profit " + employeeProfit);
-                }
-
-        );
-
-        System.out.println("printing current date " + currentDate + "and strike price " + strikePrice);
 
 
 
-    }
 
 }
