@@ -25,13 +25,11 @@ public class Main {
 
         Integer a = sc.nextInt();
 
-        Map<String, List<StockOption>> employeesStockOptions = new HashMap<>();
+        Map<String, List<StockOption>> employeesStockOptions = new TreeMap<>();
 
         for (int i = 0; i<a; i++) {
 
             String stockOptionString = sc.next();
-
-            System.out.println(stockOptionString);
 
             StockOption parsedOption = stockOptionParser(stockOptionString);
 
@@ -47,9 +45,7 @@ public class Main {
                 listOfStockOptions = new ArrayList<>();
                 employeesStockOptions.put(employeeId, listOfStockOptions);
             }
-
             listOfStockOptions.add(parsedOption);
-            System.out.println(employeesStockOptions.get(employeeId));
 
         }
 
@@ -72,15 +68,11 @@ public class Main {
         }
 // end of parsing current market info
 
-        printEmployeeStockOptionsMap(employeesStockOptions);
-
 //  to print out stdout info
 
         PrintStream printStream = new PrintStream(output);
-        printStream.println("help");
 
-        StockOption.determineProfitPerEmployee(employeesStockOptions, strikePrice, currentDate);
-
+        StockOption.determineProfitPerEmployee(employeesStockOptions, strikePrice, currentDate, printStream);
 
     }
 
@@ -109,14 +101,6 @@ public class Main {
         return new StockOption(employeeID, date, amountOfStock, strikePrice);
 
     }
-
-    public static void printEmployeeStockOptionsMap(Map employeeStockOptions) {
-        System.out.println("Printing out stockoptions....." + employeeStockOptions);
-
-
-    }
-
-
 
 
 

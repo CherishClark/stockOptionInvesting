@@ -1,16 +1,14 @@
-
-
+import java.io.PrintStream;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.DoubleStream;
+
 
 public class StockOption {
     private String employeeID;
     private Date date;
     private int amountOfStock;
     private double strikePrice;
-    private double currentPrice;
 
     public StockOption(String employeeID, Date date, int amountOfStock, double strikePrice) {
         this.employeeID = employeeID;
@@ -20,33 +18,28 @@ public class StockOption {
 
     }
 
-    public static double calcProfit(StockOption s) {
-        double profit = ((s.getAmountOfStock() * 5) - (s.getAmountOfStock() * s.getStrikePrice()));
+    public static double calcProfit(StockOption s, Double currentPrice) {
+        double profit = ((s.getAmountOfStock() * currentPrice) - (s.getAmountOfStock() * s.getStrikePrice()));
 
         if (profit < 0) {
-            return 0;
+            return 0.00;
         } else {
             return profit;
         }
 
     }
 
-    public static void determineProfitPerEmployee(Map<String, List<StockOption>> employeesStockOptions, double currentPrice, Date currentDate) {
+    public static void determineProfitPerEmployee(Map<String, List<StockOption>> employeesStockOptions, double currentPrice, Date currentDate, PrintStream printStream) {
 
         employeesStockOptions.forEach((employeeID, stockOptions) -> {
-                    DoubleStream amountOfStock = stockOptions.stream()
+            Double profit = stockOptions.stream()
                             .filter(stockOption -> stockOption.getDate().compareTo(currentDate) < 0)
-                            .mapToDouble(StockOption::calcProfit);
+                    .mapToDouble(s -> StockOption.calcProfit(s, currentPrice))
+                    .sum();
 
-
-                    System.out.println("printing employee's" + employeeID + "profit " + amountOfStock);
+            printStream.println(employeeID + "," + profit);
                 }
-
         );
-
-        System.out.println("printing current date " + currentDate + "and current price " + currentPrice);
-
-
 
     }
 
