@@ -1,6 +1,7 @@
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -55,7 +56,7 @@ public class Main {
         List<String> currentMarketInfoElementsList = Arrays.asList(currentMarketInfo.split(","));
 
         String Date = currentMarketInfoElementsList.get(0);
-        Double strikePrice = Double.parseDouble(currentMarketInfoElementsList.get(1));
+        BigDecimal strikePrice = new BigDecimal(currentMarketInfoElementsList.get(1));
         Date currentDate = new Date();
 
         try {
@@ -76,7 +77,6 @@ public class Main {
 
     }
 
-
     public static StockOption stockOptionParser(String stockOption) {
 
         List<String> stockOptionElementsList = Arrays.asList(stockOption.split(","));
@@ -94,14 +94,12 @@ public class Main {
             e.printStackTrace();
         }
 
-        int amountOfStock = Integer.parseInt(stockOptionElementsList.get(3));
+        BigDecimal amountOfStock = new BigDecimal(stockOptionElementsList.get(3));
 
-        double strikePrice = Double.parseDouble(stockOptionElementsList.get(4));
+        BigDecimal strikePrice = new BigDecimal(stockOptionElementsList.get(4));
 
         return new StockOption(employeeID, date, amountOfStock, strikePrice);
 
     }
-
-
 
 }

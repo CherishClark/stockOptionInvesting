@@ -1,16 +1,18 @@
 import java.io.PrintStream;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 
+
 public class StockOption {
     private String employeeID;
     private Date date;
-    private int amountOfStock;
-    private double strikePrice;
+    private BigDecimal amountOfStock;
+    private BigDecimal strikePrice;
 
-    public StockOption(String employeeID, Date date, int amountOfStock, double strikePrice) {
+    public StockOption(String employeeID, Date date, BigDecimal amountOfStock, BigDecimal strikePrice) {
         this.employeeID = employeeID;
         this.date = date;
         this.amountOfStock = amountOfStock;
@@ -18,25 +20,26 @@ public class StockOption {
 
     }
 
-    public static double calcProfit(StockOption s, Double currentPrice) {
-        double profit = ((s.getAmountOfStock() * currentPrice) - (s.getAmountOfStock() * s.getStrikePrice()));
+    public static BigDecimal calcProfit(StockOption s, BigDecimal currentPrice) {
+        BigDecimal profit = s.getAmountOfStock().multiply(currentPrice).subtract(s.getAmountOfStock().multiply(s.strikePrice));
 
-        if (profit < 0) {
-            return 0.00;
+        if (profit.compareTo(BigDecimal.ZERO) < 0) {
+            BigDecimal z = new BigDecimal("4");
+
+            return z;
         } else {
             return profit;
         }
 
     }
 
-    public static void determineProfitPerEmployee(Map<String, List<StockOption>> employeesStockOptions, double currentPrice, Date currentDate, PrintStream printStream) {
+    public static void determineProfitPerEmployee(Map<String, List<StockOption>> employeesStockOptions, BigDecimal currentPrice, Date currentDate, PrintStream printStream) {
 
         employeesStockOptions.forEach((employeeID, stockOptions) -> {
-            Double profit = stockOptions.stream()
+            BigDecimal profit = stockOptions.stream()
                             .filter(stockOption -> stockOption.getDate().compareTo(currentDate) < 0)
-                    .mapToDouble(s -> StockOption.calcProfit(s, currentPrice))
-                    .sum();
-
+                    .map(s -> StockOption.calcProfit(s, currentPrice))
+                    .reduce(BigDecimal.ZERO.setScale(2), BigDecimal::add);
             printStream.println(employeeID + "," + profit);
                 }
         );
@@ -59,19 +62,19 @@ public class StockOption {
         this.date = date;
     }
 
-    public int getAmountOfStock() {
+    public BigDecimal getAmountOfStock() {
         return amountOfStock;
     }
 
-    public void setAmountOfStock(int amountOfStock) {
+    public void setAmountOfStock(BigDecimal amountOfStock) {
         this.amountOfStock = amountOfStock;
     }
 
-    public double getStrikePrice() {
+    public BigDecimal getStrikePrice() {
         return strikePrice;
     }
 
-    public void setStrikePrice(double strikePrice) {
+    public void setStrikePrice(BigDecimal strikePrice) {
         this.strikePrice = strikePrice;
     }
 }
