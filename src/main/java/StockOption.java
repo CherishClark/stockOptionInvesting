@@ -7,16 +7,63 @@ import java.util.Map;
 
 
 public class StockOption {
-    private String employeeID;
-    private Date date;
-    private BigDecimal amountOfStock;
-    private BigDecimal strikePrice;
+    private final String employeeID;
+    private final Date date;
+    private final BigDecimal amountOfStock;
+    private final BigDecimal strikePrice;
 
-    public StockOption(String employeeID, Date date, BigDecimal amountOfStock, BigDecimal strikePrice) {
-        this.employeeID = employeeID;
-        this.date = date;
-        this.amountOfStock = amountOfStock;
-        this.strikePrice = strikePrice;
+    private StockOption(Builder builder) {
+        this.employeeID = builder.employeeID;
+        this.date = builder.date;
+        this.amountOfStock = builder.amountOfStock;
+        this.strikePrice = builder.strikePrice;
+    }
+
+    public String getEmployeeID() {
+        return employeeID;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public BigDecimal getAmountOfStock() {
+        return amountOfStock;
+    }
+
+    public BigDecimal getStrikePrice() {
+        return strikePrice;
+    }
+
+    public static class Builder {
+        private String employeeID;
+        private Date date;
+        private BigDecimal amountOfStock;
+        private BigDecimal strikePrice;
+
+        public Builder employeeId(final String employeeId) {
+            this.employeeID = employeeId;
+            return this;
+        }
+
+        public Builder date(final Date date) {
+            this.date = date;
+            return this;
+        }
+
+        public Builder amountOfStock(final BigDecimal amountOfStock) {
+            this.amountOfStock = amountOfStock;
+            return this;
+        }
+
+        public Builder strikePrice(final BigDecimal strikePrice) {
+            this.strikePrice = strikePrice;
+            return this;
+        }
+
+        public StockOption build() {
+            return new StockOption(this);
+        }
 
     }
 
@@ -24,10 +71,11 @@ public class StockOption {
         BigDecimal profit = s.getAmountOfStock().multiply(currentPrice).subtract(s.getAmountOfStock().multiply(s.strikePrice));
 
         if (profit.compareTo(BigDecimal.ZERO) < 0) {
-            BigDecimal z = new BigDecimal("4");
 
-            return z;
+            return BigDecimal.ZERO;
+
         } else {
+            
             return profit;
         }
 
@@ -46,35 +94,7 @@ public class StockOption {
 
     }
 
-    public String getEmployeeID() {
-        return employeeID;
-    }
 
-    public void setEmployeeID(String employeeID) {
-        this.employeeID = employeeID;
-    }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public BigDecimal getAmountOfStock() {
-        return amountOfStock;
-    }
-
-    public void setAmountOfStock(BigDecimal amountOfStock) {
-        this.amountOfStock = amountOfStock;
-    }
-
-    public BigDecimal getStrikePrice() {
-        return strikePrice;
-    }
-
-    public void setStrikePrice(BigDecimal strikePrice) {
-        this.strikePrice = strikePrice;
-    }
 }

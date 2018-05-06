@@ -4,11 +4,6 @@ public class Main {
 
         Parser.parseMyOptionsYouFool(System.in, System.out);
 
-
     }
-
-
-
-
 
 }

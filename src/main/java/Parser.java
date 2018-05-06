@@ -93,7 +93,14 @@ public class Parser {
 
         BigDecimal strikePrice = new BigDecimal(stockOptionElementsList.get(4));
 
-        return new StockOption(employeeID, date, amountOfStock, strikePrice);
+//        return new StockOption(employeeID, date, amountOfStock, strikePrice);
 
+        StockOption theRealStockOption = new StockOption.Builder()
+                .employeeId(employeeID)
+                .strikePrice(strikePrice)
+                .date(date)
+                .amountOfStock(amountOfStock).build();
+
+        return theRealStockOption;
     }
 }
