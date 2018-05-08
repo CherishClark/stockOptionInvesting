@@ -8,9 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4bbe5229-22ea-439b-8247-199ef1546142" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/Parser.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/StockOption.java" afterPath="$PROJECT_DIR$/src/main/java/StockOption.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" />
       <change beforePath="$PROJECT_DIR$/src/test/java/inputOutputTest.java" afterPath="$PROJECT_DIR$/src/test/java/inputOutputTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -98,8 +96,8 @@
       <file leaf-file-name="inputOutputTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/inputOutputTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="2055">
+              <caret line="137" column="25" lean-forward="true" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -534,8 +532,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Calculation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/StockOption.java" />
-        <option value="$PROJECT_DIR$/src/test/java/inputOutputTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Parser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/inputOutputTest.java" />
       </list>
     </option>
   </component>
@@ -886,31 +884,17 @@
       <option name="project" value="LOCAL" />
       <updated>1525645158578</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="refactoring parser to consider VEST, SALE, and PERF actions.">
+      <created>1525749325151</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1525749325151</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="inputOutputTest - 2018.05.06 at 16h 18m 15s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="inputOutputTest - 2018.05.06 at 16h 23m 11s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="inputOutputTest - 2018.05.07 at 20h 54m 03s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="inputOutputTest - 2018.05.07 at 20h 54m 42s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="inputOutputTest - 2018.05.07 at 20h 55m 48s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="inputOutputTest - 2018.05.07 at 21h 01m 19s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="inputOutputTest - 2018.05.07 at 21h 02m 02s.xml">
-      <configuration name="inputOutputTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="inputOutputTest - 2018.05.07 at 21h 03m 57s.xml">
       <configuration name="inputOutputTest" configurationId="JUnit" />
     </history-entry>
@@ -920,13 +904,33 @@
     <history-entry file="inputOutputTest - 2018.05.07 at 21h 14m 36s.xml">
       <configuration name="inputOutputTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 18m 49s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 20m 20s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 20m 40s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 25m 17s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 25m 26s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 25m 29s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="inputOutputTest - 2018.05.07 at 21h 25m 36s.xml">
+      <configuration name="inputOutputTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="30928000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="824" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="823" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -934,15 +938,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32712767" sideWeight="0.3715278" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32756326" sideWeight="0.3715278" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32712767" sideWeight="0.6284722" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32756326" sideWeight="0.6284722" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.48820058" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.49713877" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21388888" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.075" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.81180555" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -978,7 +982,8 @@
     <MESSAGE value="Replacing double with BigDecimal to implement decimal rounding to two decimal places." />
     <MESSAGE value="Refactor parsing methods into Parser Class" />
     <MESSAGE value="Turning StockOption into Builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Turning StockOption into Builder" />
+    <MESSAGE value="refactoring parser to consider VEST, SALE, and PERF actions." />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring parser to consider VEST, SALE, and PERF actions." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1245,8 +1250,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/inputOutputTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="2055">
+          <caret line="137" column="25" lean-forward="true" selection-start-line="137" selection-start-column="25" selection-end-line="137" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
