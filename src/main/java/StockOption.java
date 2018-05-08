@@ -67,7 +67,7 @@ public class StockOption {
 
     }
 
-    public static BigDecimal calcProfit(StockOption s, BigDecimal currentPrice) {
+    private static BigDecimal calcProfit(StockOption s, BigDecimal currentPrice) {
         BigDecimal profit = s.getAmountOfStock().multiply(currentPrice).subtract(s.getAmountOfStock().multiply(s.strikePrice));
 
         if (profit.compareTo(BigDecimal.ZERO) < 0) {
@@ -75,7 +75,7 @@ public class StockOption {
             return BigDecimal.ZERO;
 
         } else {
-            
+
             return profit;
         }
 

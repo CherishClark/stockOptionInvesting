@@ -8,40 +8,43 @@ import java.util.*;
 
 public class Parser {
 
-    public static void parseMyOptionsYouFool(InputStream input, OutputStream output) {
+    public static void parseInput(InputStream input, OutputStream output) {
 
-        //    Takes in stdin list of records with
-//    current mkt date and price
-
-//    parses which are stock option records and which is the current mkt date and price
-//    each record is assigned to an employee
-//    calculate profit for each employee
-//    return comma del string with employeeId and Profit
         Scanner sc = new Scanner(input);
 
         Integer a = sc.nextInt();
 
-        Map<String, List<StockOption>> employeesStockOptions = new TreeMap<>();
+        Map<String, List<StockOption>> inputString = new TreeMap<>();
 
         for (int i = 0; i < a; i++) {
 
             String stockOptionString = sc.next();
 
-            StockOption parsedOption = stockOptionParser(stockOptionString);
+            String action = chooseAction(stockOptionString);
+            if (action.contentEquals("VEST")) {
 
-            List<StockOption> listOfStockOptions;
+                StockOption parsedOption = stockOptionParser(stockOptionString);
 
-            String employeeId = parsedOption.getEmployeeID();
+                List<StockOption> employeeStockOptionsList;
 
-            if (employeesStockOptions.containsKey(employeeId)) {
+                String employeeId = parsedOption.getEmployeeID();
 
-                listOfStockOptions = employeesStockOptions.get(employeeId);
+                if (inputString.containsKey(employeeId)) {
 
-            } else {
-                listOfStockOptions = new ArrayList<>();
-                employeesStockOptions.put(employeeId, listOfStockOptions);
+                    employeeStockOptionsList = inputString.get(employeeId);
+
+                } else {
+                    employeeStockOptionsList = new ArrayList<>();
+                    inputString.put(employeeId, employeeStockOptionsList);
+                }
+
+                employeeStockOptionsList.add(parsedOption);
+
+            } else if (action.contentEquals("SALE")) {
+
+            } else if (action.contentEquals("PERF")) {
+
             }
-            listOfStockOptions.add(parsedOption);
 
         }
 
@@ -62,20 +65,24 @@ public class Parser {
 
             e.printStackTrace();
         }
-// end of parsing current market info
-
-//  to print out stdout info
 
         PrintStream printStream = new PrintStream(output);
 
-        StockOption.determineProfitPerEmployee(employeesStockOptions, strikePrice, currentDate, printStream);
+        StockOption.determineProfitPerEmployee(inputString, strikePrice, currentDate, printStream);
 
+    }
+
+    public static String chooseAction(String stockOption) {
+        List<String> stockOptionElementsList = Arrays.asList(stockOption.split(","));
+
+        return stockOptionElementsList.get(0);
     }
 
     public static StockOption stockOptionParser(String stockOption) {
 
         List<String> stockOptionElementsList = Arrays.asList(stockOption.split(","));
 
+        String action = stockOptionElementsList.get(0);
         String employeeID = stockOptionElementsList.get(1);
         String Date = stockOptionElementsList.get(2);
         Date date = new Date();
@@ -103,4 +110,5 @@ public class Parser {
 
         return theRealStockOption;
     }
+
 }

@@ -22,7 +22,7 @@ public class inputOutputTest {
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseMyOptionsYouFool(input, output);
+        Parser.parseInput(input, output);
 
         System.out.println(output.toString());
         assertEquals("001B,1300.00\n" +
@@ -44,11 +44,12 @@ public class inputOutputTest {
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseMyOptionsYouFool(input, output);
+        Parser.parseInput(input, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
                 "002B,825.00\n" +
                 "003B,0.00\n", output.toString());
     }
+
 }
