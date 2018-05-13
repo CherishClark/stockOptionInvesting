@@ -7,20 +7,20 @@ import java.util.Map;
 
 
 public class StockOption {
-    private final String employeeID;
+    private final String employeeId;
     private final Date date;
     private final BigDecimal amountOfStock;
     private final BigDecimal strikePrice;
 
     private StockOption(Builder builder) {
-        this.employeeID = builder.employeeID;
+        this.employeeId = builder.employeeId;
         this.date = builder.date;
         this.amountOfStock = builder.amountOfStock;
         this.strikePrice = builder.strikePrice;
     }
 
-    public String getEmployeeID() {
-        return employeeID;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
     public Date getDate() {
@@ -36,13 +36,13 @@ public class StockOption {
     }
 
     public static class Builder {
-        private String employeeID;
+        private String employeeId;
         private Date date;
         private BigDecimal amountOfStock;
         private BigDecimal strikePrice;
 
         public Builder employeeId(final String employeeId) {
-            this.employeeID = employeeId;
+            this.employeeId = employeeId;
             return this;
         }
 

@@ -27,7 +27,7 @@ public class Parser {
 
                 List<StockOption> employeeStockOptionsList;
 
-                String employeeId = parsedOption.getEmployeeID();
+                String employeeId = parsedOption.getEmployeeId();
 
                 if (inputString.containsKey(employeeId)) {
 
