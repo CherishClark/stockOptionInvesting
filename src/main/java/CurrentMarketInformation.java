@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class CurrentMarketInformation {
     private Date marketDate;
-    private BigDecimal marketPrice;
+    private BigDecimal strikePrice;
 
     private CurrentMarketInformation(Builder builder) {
 
@@ -13,21 +13,21 @@ public class CurrentMarketInformation {
         return marketDate;
     }
 
-    public BigDecimal getMarketPrice() {
-        return marketPrice;
+    public BigDecimal getStrikePrice() {
+        return strikePrice;
     }
 
     public static class Builder {
         private Date marketDate;
-        private BigDecimal marketPrice;
+        private BigDecimal strikePrice;
 
         public Builder marketDate(final Date marketDate) {
             this.marketDate = marketDate;
             return this;
         }
 
-        public Builder marketPrice(final BigDecimal marketPrice) {
-            this.marketPrice = marketPrice;
+        public Builder strikePrice(final BigDecimal marketPrice) {
+            this.strikePrice = marketPrice;
             return this;
         }
 
