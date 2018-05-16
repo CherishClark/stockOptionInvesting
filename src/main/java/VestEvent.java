@@ -33,11 +33,8 @@ public class VestEvent extends Event {
             this.strikePrice = strikePrice;
             return this;
         }
-
     }
-
-
 }
 
 
-}
+

@@ -1,70 +1,55 @@
+import com.sun.tools.classfile.Opcode;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EventProcessor {
     EventInfo eventInfo;
-    List employeesList = new ArrayList();
+    List<Employee> employeesList = new ArrayList();
 
     public EventProcessor(EventInfo eventInfo) {
         this.eventInfo = eventInfo;
+        processEvents();
     }
 
     public EventInfo getEventInfo() {
         return eventInfo;
     }
 
-    public void processEvents(EventInfo eventInfo) {
-        createEmployee(eventInfo, employeesList);
+    private void processEvents() {
 
-    }
-
-    public void createEmployee(EventInfo eventInfo, List employeesList) {
-
-        List<Event> eventsList = eventInfo.eventsList;
-
-        for (Event event : eventsList) {
-
-            if (!employeesList.contains(event.getEmployeeId())) {
-                List<Event> employeeEventList = eventsList.stream()
-                        .filter(eventList -> !eventList.getEmployeeId()
-                                .equals(eventList.getEmployeeId()))
-                        .collect(Collectors
-                                .toList());
-
-                EmployeeRecord employeeRecord = new EmployeeRecord(eventInfo);
-                Employee employee = new Employee(event.getEmployeeId(), employeeRecord);
-
-                employeesList.add(employee);
-            }
-
+        Set<String> allEmployeeIds = eventInfo.eventsList.stream()
+                .map(e -> e.getEmployeeId())
+                .collect(Collectors.toSet());
+        for (String employeeId : allEmployeeIds) {
+            Employee employee = new Employee(employeeId, eventInfo.eventsList.stream()
+                    .filter(e -> e.getEmployeeId().compareTo(employeeId) == 0)
+                    .collect(Collectors.toList()));
+            employeesList.add(employee);
+            determineProfitOfEmployeeVestedOptions(employee);
         }
 
     }
+
 
     public BigDecimal determineProfitOfEmployeeVestedOptions(Employee employee) {
-        List<Event> employeeEvents = employee.employeeRecord.getEventList();
-        List<Event> vestedEvents = employeeEvents.stream().filter(e -> {
-            Date marketDate = employee.employeeRecord.eventInfo.currentMarketInfo.getMarketDate();
-            return e.getEventDate().compareTo(marketDate) < 0;
-        }).collect(Collectors.toList());
+        List<Event> employeeEvents = employee.getEmployeeRecord();
 
-        List<VestEvent> vestedEventsList = new ArrayList<>();
+        BigDecimal profit =
+                employeeEvents.stream()
+                        .filter(e -> {
+                            Date marketDate = eventInfo.currentMarketInfo.getMarketDate();
+                            return e.getEventDate().compareTo(marketDate) < 0;
+                        }).filter(e -> e.getEventType().toUpperCase().compareTo("VEST") == 0)
+                        .map(VestEvent.class::cast)
+                        .map(e -> calcProfit(e, e.getStrikePrice()))
+                        .reduce(BigDecimal.ZERO.setScale(2), BigDecimal::add);
 
-        for (VestEvent event : vestedEventsList) {
-            if (event.getEventType().toUpperCase() == "VEST") {
-                vestedEventsList.add(event);
-
-            }
-            BigDecimal profit = vestedEventsList.stream().map(e -> calcProfit(e, e.getStrikePrice())).reduce(BigDecimal.ZERO.setScale(2), BigDecimal::add);
-
-            return profit;
-
-        }
-
-
+        return profit;
     }
 
     private static BigDecimal calcProfit(VestEvent e, BigDecimal strikePrice) {
