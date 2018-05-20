@@ -27,8 +27,6 @@ public class inputOutputTest {
 
         Outpoots outpoots = new Outpoots(eventProcessor, output);
 
-//        Parser.parseInput(input, output);
-
 
         System.out.println(output.toString());
         assertEquals("001B,1300.00\n" +
@@ -45,12 +43,15 @@ public class inputOutputTest {
                 "VEST,001B,20130101,1500,0.50\n" +
                 "VEST,003B,20130101,1000,0.50\n" +
                 "20120615,1.00\n";
-
         OutputStream output = new java.io.ByteArrayOutputStream();
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseInput(input, output);
+        EventInfo eventInfo = EventParser.parseEvents(input);
+
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+
+        Outpoots outpoots = new Outpoots(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
@@ -71,7 +72,11 @@ public class inputOutputTest {
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseInput(input, output);
+        EventInfo eventInfo = EventParser.parseEvents(input);
+
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+
+        Outpoots outpoots = new Outpoots(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,825.00\n" +
@@ -90,11 +95,16 @@ public class inputOutputTest {
                 "PERF,001B,20130102,1.5\n" +
                 "PERF,002B,20130102,1.5\n" +
                 "20130101,1.00\n";
+
         OutputStream output = new java.io.ByteArrayOutputStream();
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseInput(input, output);
+        EventInfo eventInfo = EventParser.parseEvents(input);
+
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+
+        Outpoots outpoots = new Outpoots(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
@@ -117,7 +127,11 @@ public class inputOutputTest {
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseInput(input, output);
+        EventInfo eventInfo = EventParser.parseEvents(input);
+
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+
+        Outpoots outpoots = new Outpoots(eventProcessor, output);
 
 
         System.out.println(output.toString());
@@ -139,7 +153,11 @@ public class inputOutputTest {
 
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseInput(input, output);
+        EventInfo eventInfo = EventParser.parseEvents(input);
+
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+
+        Outpoots outpoots = new Outpoots(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,275.00,275.00\n" +

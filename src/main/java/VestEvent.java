@@ -3,7 +3,6 @@ import java.math.BigDecimal;
 public class VestEvent extends Event {
     private BigDecimal amountOfStock;
     private BigDecimal strikePrice;
-    private String employeeId;
 
     public VestEvent(Builder builder) {
         super(builder);
@@ -33,7 +32,26 @@ public class VestEvent extends Event {
             this.strikePrice = strikePrice;
             return this;
         }
+
+        public Event build() {
+            return new VestEvent(this);
+        }
     }
+
+    @Override
+    public BigDecimal calcProfit(BigDecimal marketPrice) {
+        BigDecimal profit = getAmountOfStock().multiply(marketPrice).subtract(getAmountOfStock().multiply(strikePrice));
+
+        if (profit.compareTo(BigDecimal.ZERO) < 0) {
+
+            return BigDecimal.ZERO;
+
+        } else {
+
+            return profit;
+        }
+    }
+
 }
 
 

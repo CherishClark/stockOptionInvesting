@@ -1,5 +1,6 @@
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.Collections;
 import java.util.List;
 
 public class Outpoots {
@@ -21,6 +22,7 @@ public class Outpoots {
         PrintStream printStream = new PrintStream(output);
 
         List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Collections.sort(employeeList);
 
         for (Employee e : employeeList) {
             printStream.println(e.employeeId + "," + e.employeeProfit);

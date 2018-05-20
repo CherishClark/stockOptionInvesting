@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Event {
@@ -51,5 +52,8 @@ public class Event {
 
     }
 
+    public BigDecimal calcProfit(BigDecimal marketPrice) {
+        return BigDecimal.ZERO;
+    }
 
 }

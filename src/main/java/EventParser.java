@@ -58,7 +58,7 @@ public class EventParser {
 
     public static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString) {
         String[] currentMarketInfo = currentMarketInfoString.split(",");
-        BigDecimal strikePrice = new BigDecimal(currentMarketInfo[0]);
+        BigDecimal marketPrice = new BigDecimal(currentMarketInfo[1]);
         Date marketDate = new Date();
         try {
 
@@ -71,7 +71,7 @@ public class EventParser {
 
         return new CurrentMarketInformation.Builder()
                 .marketDate(marketDate)
-                .strikePrice(strikePrice)
+                .marketPrice(marketPrice)
                 .build();
 
     }

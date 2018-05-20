@@ -1,7 +1,7 @@
 import java.math.BigDecimal;
 import java.util.List;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
     String employeeId;
     List<Event> employeeRecord;
     BigDecimal employeeProfit;
@@ -20,7 +20,9 @@ public class Employee {
         return employeeRecord;
     }
 
-    public BigDecimal getEmployeeProfit() {
-        return employeeProfit;
+
+    @Override
+    public int compareTo(Employee o) {
+        return employeeId.compareTo(o.employeeId);
     }
 }
