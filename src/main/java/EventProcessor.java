@@ -41,25 +41,6 @@ public class EventProcessor {
 
     public BigDecimal determineProfitOfEmployeeVestedOptions(Employee employee) {
         List<Event> employeeEvents = employee.getEmployeeRecord();
-//        List<Event> vestedEvents = (VestEvent) new ArrayList<VestEvent>();
-//
-//
-//        for (Event event : employeeEvents) {
-//            if(event.getEventDate().compareTo(eventInfo.currentMarketInfo.getMarketDate()) < 0) {
-//                vestedEvents.add(event);
-//            }
-//        }
-//
-//        for (v : vestedEvents) {
-//
-//            calcProfit(vestedEvents,eventInfo.currentMarketInfo.getStrikePrice());
-//
-//        }
-
-        List<Event> vestedEvents = employeeEvents.stream()
-                .filter(e -> e.getEventType().compareTo("VEST") == 0)
-                .collect(Collectors.toList());
-
 
         BigDecimal profit =
                 employeeEvents.stream()
@@ -68,25 +49,8 @@ public class EventProcessor {
                             return e.getEventDate().compareTo(marketDate) < 0;
                         }).map(vestEvent -> vestEvent.calcProfit(eventInfo.currentMarketInfo.getMarketPrice()))
                         .reduce(BigDecimal.ZERO.setScale(2), BigDecimal::add);
-//                        .filter(e -> e instanceof VestEvent)//e.getEventType().toUpperCase().compareTo("VEST") == 0)
-        //.map(VestEvent.class::cast)
-//                        .map(e -> (VestEvent)e)
-
         employee.employeeProfit = profit;
         return profit;
     }
 
-//    private static BigDecimal calcProfit(VestEvent e, BigDecimal strikePrice) {
-//        BigDecimal profit = e.getAmountOfStock().multiply(strikePrice).subtract(e.getAmountOfStock().multiply(e.getStrikePrice()));
-//
-//        if (profit.compareTo(BigDecimal.ZERO) < 0) {
-//
-//            return BigDecimal.ZERO;
-//
-//        } else {
-//
-//            return profit;
-//        }
-//
-//    }
 }
