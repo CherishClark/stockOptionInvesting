@@ -1,11 +1,11 @@
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeRecord {
-    List<Event> eventList = new ArrayList<>();
+    List<Event> eventList;
+    List<VestEvent> vestEventList;
 
     public EmployeeRecord(EventInfo eventInfo) {
-        this.eventList = eventInfo.getEventsList();
+        this.vestEventList = eventInfo.getEventsList();
     }
 
     public List<Event> getEventList() {

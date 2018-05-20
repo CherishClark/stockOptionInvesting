@@ -6,6 +6,8 @@ public class Main {
 
         EventInfo eventInfo = EventParser.parseEvents(System.in);
 
+        new Outpoots(new EventProcessor(eventInfo), System.out);
+
 //        I will have something that i slike an ecent processor here it will do the following:
 //        1. iterate through all of the events
 //        if the event has an employeeId for an employee that does not exist yet,

@@ -1,5 +1,3 @@
-import com.sun.tools.classfile.Opcode;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,9 +30,11 @@ public class EventProcessor {
             employeesList.add(employee);
             determineProfitOfEmployeeVestedOptions(employee);
         }
-
     }
 
+    public List<Employee> getEmployeesList() {
+        return employeesList;
+    }
 
     public BigDecimal determineProfitOfEmployeeVestedOptions(Employee employee) {
         List<Event> employeeEvents = employee.getEmployeeRecord();
@@ -42,13 +42,13 @@ public class EventProcessor {
         BigDecimal profit =
                 employeeEvents.stream()
                         .filter(e -> {
-                            Date marketDate = eventInfo.currentMarketInfo.getMarketDate();
+                            Date marketDate = eventInfo.getCurrentMarketInfo().getMarketDate();
                             return e.getEventDate().compareTo(marketDate) < 0;
                         }).filter(e -> e.getEventType().toUpperCase().compareTo("VEST") == 0)
                         .map(VestEvent.class::cast)
                         .map(e -> calcProfit(e, e.getStrikePrice()))
                         .reduce(BigDecimal.ZERO.setScale(2), BigDecimal::add);
-
+        employee.employeeProfit = profit;
         return profit;
     }
 

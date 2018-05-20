@@ -4,6 +4,7 @@ import java.util.List;
 public class Employee {
     String employeeId;
     List<Event> employeeRecord;
+    BigDecimal employeeProfit;
 
 
     public Employee(String employeeId, List<Event> employeeRecord) {
@@ -19,9 +20,7 @@ public class Employee {
         return employeeRecord;
     }
 
-    public BigDecimal profit(CurrentMarketInformation cmi) {
-
-        return BigDecimal.ZERO;
+    public BigDecimal getEmployeeProfit() {
+        return employeeProfit;
     }
-
 }

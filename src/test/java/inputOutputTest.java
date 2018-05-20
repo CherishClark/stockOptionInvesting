@@ -19,10 +19,16 @@ public class inputOutputTest {
 
         OutputStream output = new java.io.ByteArrayOutputStream();
 
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
-        Parser.parseInput(input, output);
+        EventInfo eventInfo = EventParser.parseEvents(input);
+
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+
+        Outpoots outpoots = new Outpoots(eventProcessor, output);
+
+//        Parser.parseInput(input, output);
+
 
         System.out.println(output.toString());
         assertEquals("001B,1300.00\n" +
@@ -112,6 +118,7 @@ public class inputOutputTest {
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
 
         Parser.parseInput(input, output);
+
 
         System.out.println(output.toString());
         assertEquals("001B,412.50,275.00\n" +

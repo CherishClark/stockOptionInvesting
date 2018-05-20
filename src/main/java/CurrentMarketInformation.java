@@ -6,7 +6,8 @@ public class CurrentMarketInformation {
     private BigDecimal strikePrice;
 
     private CurrentMarketInformation(Builder builder) {
-
+        this.marketDate = builder.marketDate;
+        this.strikePrice = builder.strikePrice;
     }
 
     public Date getMarketDate() {

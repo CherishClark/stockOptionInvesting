@@ -17,7 +17,7 @@ public class EventParser {
         for (int i = 0; i < a; i++) {
             String eventString = sc.next();
 
-            if (identifyEventType(eventString) == "VEST") {
+            if (identifyEventType(eventString).compareTo("VEST") == 0) {
                 eventsList.add(createVestEvent(eventString));
             }
         }
@@ -62,7 +62,7 @@ public class EventParser {
         Date marketDate = new Date();
         try {
 
-            marketDate = new SimpleDateFormat("yyyymmdd").parse(currentMarketInfo[1]);
+            marketDate = new SimpleDateFormat("yyyymmdd").parse(currentMarketInfo[0]);
 
         } catch (ParseException e) {
 
