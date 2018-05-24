@@ -5,7 +5,7 @@ import java.io.OutputStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class inputOutputTest {
+public class eventProfitIntTest {
     @Test
     public void givenCurrentMarketInfo_whenMultipleOptionsForSameAndMultipleEmployees_returnProfitPerEmployee() {
 
