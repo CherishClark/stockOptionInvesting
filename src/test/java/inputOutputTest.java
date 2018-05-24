@@ -25,7 +25,7 @@ public class inputOutputTest {
 
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
 
-        Outpoots outpoots = new Outpoots(eventProcessor, output);
+        Outputer outputer = new Outputer(eventProcessor, output);
 
 
         System.out.println(output.toString());
@@ -51,7 +51,7 @@ public class inputOutputTest {
 
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
 
-        Outpoots outpoots = new Outpoots(eventProcessor, output);
+        Outputer outputer = new Outputer(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
@@ -76,7 +76,7 @@ public class inputOutputTest {
 
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
 
-        Outpoots outpoots = new Outpoots(eventProcessor, output);
+        Outputer outputer = new Outputer(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,825.00\n" +
@@ -104,7 +104,7 @@ public class inputOutputTest {
 
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
 
-        Outpoots outpoots = new Outpoots(eventProcessor, output);
+        Outputer outputer = new Outputer(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
@@ -131,7 +131,7 @@ public class inputOutputTest {
 
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
 
-        Outpoots outpoots = new Outpoots(eventProcessor, output);
+        Outputer outputer = new Outputer(eventProcessor, output);
 
 
         System.out.println(output.toString());
@@ -157,7 +157,7 @@ public class inputOutputTest {
 
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
 
-        Outpoots outpoots = new Outpoots(eventProcessor, output);
+        Outputer outputer = new Outputer(eventProcessor, output);
 
         System.out.println(output.toString());
         assertEquals("001B,275.00,275.00\n" +

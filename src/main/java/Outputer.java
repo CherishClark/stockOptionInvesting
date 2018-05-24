@@ -3,13 +3,13 @@ import java.io.PrintStream;
 import java.util.Collections;
 import java.util.List;
 
-public class Outpoots {
+public class Outputer {
 
 
     EventProcessor eventProcessor;
 
 
-    public Outpoots(EventProcessor eventProcessor, OutputStream output) {
+    public Outputer(EventProcessor eventProcessor, OutputStream output) {
 
         this.eventProcessor = eventProcessor;
         printEmployeeProfit(eventProcessor, output);
