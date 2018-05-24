@@ -2,8 +2,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class Employee implements Comparable<Employee> {
-    String employeeId;
-    List<Event> employeeRecord;
+    private final String employeeId;
+    private final List<Event> employeeRecord;
     BigDecimal employeeProfit;
 
 
@@ -19,7 +19,6 @@ public class Employee implements Comparable<Employee> {
     public List<Event> getEmployeeRecord() {
         return employeeRecord;
     }
-
 
     @Override
     public int compareTo(Employee o) {

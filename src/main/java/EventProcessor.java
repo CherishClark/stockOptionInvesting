@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -6,15 +7,15 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EventProcessor {
-    EventInfo eventInfo;
-    List<Employee> employeesList = new ArrayList();
+    private final EventInfo eventInfo;
+    private final List<Employee> employeesList = new ArrayList();
 
     public EventProcessor(EventInfo eventInfo) {
         this.eventInfo = eventInfo;
         processEvents();
     }
 
-    public EventInfo getEventInfo() {
+    private EventInfo getEventInfo() {
         return eventInfo;
     }
 
@@ -39,18 +40,15 @@ public class EventProcessor {
         return employeesList;
     }
 
-    public BigDecimal determineProfitOfEmployeeVestedOptions(Employee employee) {
+    private void determineProfitOfEmployeeVestedOptions(Employee employee) {
         List<Event> employeeEvents = employee.getEmployeeRecord();
 
-        BigDecimal profit =
-                employeeEvents.stream()
-                        .filter(e -> {
-                            Date marketDate = eventInfo.getCurrentMarketInfo().getMarketDate();
-                            return e.getEventDate().compareTo(marketDate) < 0;
-                        }).map(vestEvent -> vestEvent.calcProfit(eventInfo.currentMarketInfo.getMarketPrice()))
-                        .reduce(BigDecimal.ZERO.setScale(2), BigDecimal::add);
-        employee.employeeProfit = profit;
-        return profit;
+        employee.employeeProfit = employeeEvents.stream()
+                .filter(e -> {
+                    Date marketDate = eventInfo.getCurrentMarketInfo().getMarketDate();
+                    return e.getEventDate().compareTo(marketDate) < 0;
+                }).map(vestEvent -> vestEvent.calcProfit(eventInfo.currentMarketInfo.getMarketPrice()))
+                .reduce(BigDecimal.ZERO.setScale(2, RoundingMode.UP), BigDecimal::add);
     }
 
 }

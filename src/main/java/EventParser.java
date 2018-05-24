@@ -11,8 +11,6 @@ public class EventParser {
         Integer a = sc.nextInt();
 
         List<Event> eventsList = new ArrayList<>();
-        String currentMarketInfo;
-
 
         for (int i = 0; i < a; i++) {
             String eventString = sc.next();
@@ -28,12 +26,12 @@ public class EventParser {
 
     }
 
-    public static String identifyEventType(String eventString) {
+    private static String identifyEventType(String eventString) {
         List<String> eventElements = Arrays.asList(eventString.split(","));
         return eventElements.get(0);
     }
 
-    public static Event createVestEvent(String eventString) {
+    private static Event createVestEvent(String eventString) {
         List<String> vestEventElements = Arrays.asList(eventString.split(","));
         String eventType = vestEventElements.get(0);
         String employeeId = vestEventElements.get(1);
@@ -56,7 +54,7 @@ public class EventParser {
 
     }
 
-    public static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString) {
+    private static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString) {
         String[] currentMarketInfo = currentMarketInfoString.split(",");
         BigDecimal marketPrice = new BigDecimal(currentMarketInfo[1]);
         Date marketDate = new Date();

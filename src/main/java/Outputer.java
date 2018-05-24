@@ -5,9 +5,7 @@ import java.util.List;
 
 public class Outputer {
 
-
-    EventProcessor eventProcessor;
-
+    private final EventProcessor eventProcessor;
 
     public Outputer(EventProcessor eventProcessor, OutputStream output) {
 
@@ -17,7 +15,7 @@ public class Outputer {
     }
 
 
-    public void printEmployeeProfit(EventProcessor eventProcessor, OutputStream output) {
+    private void printEmployeeProfit(EventProcessor eventProcessor, OutputStream output) {
 
         PrintStream printStream = new PrintStream(output);
 
@@ -25,9 +23,7 @@ public class Outputer {
         Collections.sort(employeeList);
 
         for (Employee e : employeeList) {
-            printStream.println(e.employeeId + "," + e.employeeProfit);
-
+            printStream.println(e.getEmployeeId() + "," + e.employeeProfit);
         }
-
     }
 }

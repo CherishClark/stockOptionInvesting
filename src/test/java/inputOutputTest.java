@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 public class inputOutputTest {
     @Test
-    public void stockOptions_whenMultipleOptionsForSameAndMultipleEmployees_returnProfitPerEmployee() {
+    public void givenCurrentMarketInfo_whenMultipleOptionsForSameAndMultipleEmployees_returnProfitPerEmployee() {
 
         String string = "5\n" +
                 "VEST,001B,20120101,1000,0.45\n" +
@@ -35,7 +35,7 @@ public class inputOutputTest {
     }
 
     @Test
-    public void stockOptions_whenMultipleOptionsForSameAndMultipleEmployees_returnProfitPerEmployeeForDifferentDate() {
+    public void givenCurrentMarketInfo_whenMultipleOptionsForSameAndMultipleEmployees_returnProfitPerEmployeeForDifferentDate() {
         String string = "5\n" +
                 "VEST,001B,20120101,1000,0.45\n" +
                 "VEST,002B,20120101,1500,0.45\n" +
@@ -60,7 +60,7 @@ public class inputOutputTest {
     }
 
     @Test
-    public void stockOptions_whenPerformanceIsConsidered_returnProfitPerEmployee() {
+    public void givenCurrentMarketInfo_whenPerformanceIsConsidered_returnProfitPerEmployee() {
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
                 "VEST,002B,20120102,1000,0.45\n" +
@@ -86,7 +86,7 @@ public class inputOutputTest {
     }
 
     @Test
-    public void stockOptions_whenPerformanceIsConsidered_returnProfitPerEmployeeForAnotherDate() {
+    public void givenCurrentMarketInfo_whenPerformanceIsConsidered_returnProfitPerEmployeeForAnotherDate() {
 
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
@@ -114,7 +114,7 @@ public class inputOutputTest {
     }
 
     @Test
-    public void stockOptions_whenStockOptionsAreSold_returnTotalProfitPerEmployeeAndProfitThroughSale() {
+    public void givenCurrentMarketInfo_whenStockOptionsAreSold_returnTotalProfitPerEmployeeAndProfitThroughSale() {
 
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
@@ -140,7 +140,7 @@ public class inputOutputTest {
 
     }
 
-    public void stockOptions_whenStockOptionsAreSold_returnTotalProfitPerEmployeeAndProfitThroughSaleForAnotherDate() {
+    public void givenCurrentMarketInfo_whenStockOptionsAreSold_returnTotalProfitPerEmployeeAndProfitThroughSaleForAnotherDate() {
 
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
