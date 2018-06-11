@@ -11,13 +11,6 @@ public class VestEvent extends Event {
 
     }
 
-    public BigDecimal getAmountOfStock() {
-        return amountOfStock;
-    }
-
-    public BigDecimal getStrikePrice() {
-        return strikePrice;
-    }
 
     public static class Builder extends Event.Builder {
         private BigDecimal amountOfStock;
@@ -50,6 +43,15 @@ public class VestEvent extends Event {
 
             return profit;
         }
+    }
+
+
+    public BigDecimal getAmountOfStock() {
+        return amountOfStock;
+    }
+
+    public BigDecimal getStrikePrice() {
+        return strikePrice;
     }
 
 }

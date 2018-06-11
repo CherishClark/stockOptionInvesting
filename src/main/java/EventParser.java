@@ -18,6 +18,10 @@ public class EventParser {
             if (identifyEventType(eventString).compareTo("VEST") == 0) {
                 eventsList.add(createVestEvent(eventString));
             }
+
+            if (identifyEventType(eventString).compareTo("SALE") == 0) {
+                eventsList.add(createSaleEvent(eventString));
+            }
         }
 
         String currentMarketInfoString = sc.next();
@@ -52,6 +56,28 @@ public class EventParser {
                 .eventDate(vestDate)
                 .build();
 
+    }
+
+    private static Event createSaleEvent(String eventString) {
+        List<String> saleEventElements = Arrays.asList((eventString.split(",")));
+        String eventType = saleEventElements.get(0);
+        String employeeId = saleEventElements.get(1);
+        BigDecimal amtSold = new BigDecimal(saleEventElements.get(3));
+        BigDecimal salePrice = new BigDecimal(saleEventElements.get(4));
+        java.util.Date saleDate = new Date();
+        try {
+            saleDate = new SimpleDateFormat("yyyymmdd").parse(saleEventElements.get(2));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return new SaleEvent.Builder()
+                .amtSold(amtSold)
+                .salePrice(salePrice)
+                .employeeId(employeeId)
+                .eventType(eventType)
+                .eventDate(saleDate)
+                .build();
     }
 
     private static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString) {
