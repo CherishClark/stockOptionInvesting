@@ -23,7 +23,11 @@ public class Outputer {
         Collections.sort(employeeList);
 
         for (Employee e : employeeList) {
+            if (e.employeeSalesProfit == null)
             printStream.println(e.getEmployeeId() + "," + e.employeeProfit);
+            else {
+                printStream.println(e.getEmployeeId() + "," + e.employeeProfit + "," + e.employeeSalesProfit);
+            }
         }
     }
 }

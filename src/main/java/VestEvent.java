@@ -45,9 +45,25 @@ public class VestEvent extends Event {
         }
     }
 
+    @Override
+    public void reduceEventAmount(BigDecimal amountOfStock) {
+        BigDecimal currentAmt = getAmountOfStock();
+
+        if (currentAmt.compareTo(amountOfStock)< 0 ) {
+          setAmountOfStock(currentAmt.subtract(amountOfStock));
+        } else {
+            setAmountOfStock(BigDecimal.ZERO);
+        }
+
+    }
+
 
     public BigDecimal getAmountOfStock() {
         return amountOfStock;
+    }
+
+    public void setAmountOfStock(BigDecimal amountOfStock) {
+        this.amountOfStock = amountOfStock;
     }
 
     public BigDecimal getStrikePrice() {

@@ -140,6 +140,7 @@ public class eventProfitIntTest {
 
     }
 
+    @Test
     public void givenCurrentMarketInfo_whenStockOptionsAreSold_returnTotalProfitPerEmployeeAndProfitThroughSaleForAnotherDate() {
 
         String string = "5\n" +

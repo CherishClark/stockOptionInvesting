@@ -3,12 +3,15 @@ import java.math.BigDecimal;
 public class SaleEvent extends Event {
     private BigDecimal amtSold;
     private BigDecimal salePrice;
+    private BigDecimal profitOfSale;
 
     public SaleEvent(Builder builder) {
         super(builder);
         this.amtSold = builder.amtSold;
         this.salePrice = builder.salePrice;
     }
+
+
 
 
     public static class Builder extends Event.Builder {
@@ -30,6 +33,15 @@ public class SaleEvent extends Event {
         }
     }
 
+    @Override
+    public BigDecimal calcProfit(BigDecimal originalPrice) {
+         salePrice.multiply(amtSold).subtract(originalPrice.multiply(amtSold));
+        return profitOfSale;
+    }
+
+    public BigDecimal getProfitOfSale() {
+        return profitOfSale;
+    }
 
     public BigDecimal getAmtSold() {
         return amtSold;

@@ -56,4 +56,8 @@ public class Event {
         return BigDecimal.ZERO;
     }
 
+    public void reduceEventAmount(BigDecimal amount){
+
+    }
+
 }

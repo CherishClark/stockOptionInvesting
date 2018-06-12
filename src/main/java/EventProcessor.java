@@ -32,7 +32,19 @@ public class EventProcessor {
                     .collect(Collectors.toList()));
 //
             employeesList.add(employee);
-            determineProfitOfEmployeeVestedOptions(employee);
+
+//            For each event added to list
+            for (Event event: eventsList) {
+                if (event.getEventType().compareTo("VEST") == 0) {
+                    determineProfitOfEmployeeVestedOptions(employee);
+                } else if (event.getEventType().compareTo("SALE") == 0){
+//TODO: fix type casting
+                    employee.processSaleOfStock((SaleEvent)event);
+                    employee.setEmployeeSalesProfit(((SaleEvent) event).getProfitOfSale());
+                }
+
+            }
+
         }
     }
 
