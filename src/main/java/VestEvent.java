@@ -41,7 +41,7 @@ public class VestEvent extends Event {
 
         } else {
 
-            return profit;
+            return profit.setScale(2, BigDecimal.ROUND_HALF_UP);
         }
     }
 
@@ -54,6 +54,12 @@ public class VestEvent extends Event {
         } else {
             setAmountOfStock(BigDecimal.ZERO);
         }
+
+    }
+
+    @Override
+    public void increaseEventAmount(BigDecimal multiplier) {
+        setAmountOfStock(multiplier.multiply(amountOfStock));
 
     }
 

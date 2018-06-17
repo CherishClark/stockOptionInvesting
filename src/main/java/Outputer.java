@@ -26,6 +26,10 @@ public class Outputer {
         boolean containsSaleEvent = false;
 
         for (Employee e : employeeList) {
+            if (e.employeeProfit == null) {
+                e.setEmployeeProfit(BigDecimal.ZERO.setScale(2));
+            }
+
             if (e.employeeSalesProfit != null) {
                 containsSaleEvent = true;
             }

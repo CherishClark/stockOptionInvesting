@@ -21,9 +21,13 @@ public class EventProcessor {
 
     private void processEvents() {
 
-        List<Event> eventsList = eventInfo.eventsList;
+        List<Event> eventsList = eventInfo.eventsList.stream().filter(e -> {
+            Date marketDate = eventInfo.getCurrentMarketInfo().getMarketDate();
+            return e.getEventDate().compareTo(marketDate) < 0;
+        }).collect(Collectors.toList());
 
-        Set<String> allEmployeeIds = eventsList.stream()
+
+        Set<String> allEmployeeIds = eventInfo.eventsList.stream()
                 .map(e -> e.getEmployeeId())
                 .collect(Collectors.toSet());
         for (String employeeId : allEmployeeIds) {
@@ -36,15 +40,10 @@ public class EventProcessor {
             List<Event> employeesEvents = employee.getEmployeeRecord();
 
 //            For each event added to list
-            for (Event event : employeesEvents) {
-                if (event.getEventType().compareTo("VEST") == 0) {
-                    determineProfitOfEmployeeVestedOptions(employee);
-                } else if (event.getEventType().compareTo("SALE") == 0){
-//TODO: fix type casting
-                    employee.processSaleOfStock((SaleEvent)event);
-                    employee.setEmployeeSalesProfit(((SaleEvent) event).getProfitOfSale());
-                }
-            }
+
+            processesSaleEvents(employeesEvents, employee);
+            processPerformanceEvents(employeesEvents, employee);
+            processVestEvents(employeesEvents, employee);
 
         }
     }
@@ -63,5 +62,37 @@ public class EventProcessor {
                 }).map(vestEvent -> vestEvent.calcProfit(eventInfo.currentMarketInfo.getMarketPrice()))
                 .reduce(BigDecimal.ZERO.setScale(2, RoundingMode.UP), BigDecimal::add);
     }
+
+    private void processesSaleEvents(List<Event> events, Employee employee) {
+
+        for (Event event : events) {
+            if (event.getEventType().compareTo("SALE") == 0) {
+//TODO: fix type casting
+                employee.processSaleOfStock((SaleEvent) event);
+                employee.setEmployeeSalesProfit(((SaleEvent) event).getProfitOfSale());
+            }
+        }
+
+    }
+
+    private void processPerformanceEvents(List<Event> events, Employee employee) {
+
+        for (Event event : events) {
+            if (event.getEventType().compareTo("PERF") == 0) {
+//                    TODO: Fix type casting
+                employee.processPerformanceEvent((PerformanceEvent) event);
+            }
+        }
+    }
+
+    private void processVestEvents(List<Event> events, Employee employee) {
+        for (Event event : events) {
+            if (event.getEventType().compareTo("VEST") == 0) {
+                determineProfitOfEmployeeVestedOptions(employee);
+            }
+        }
+    }
+
+
 
 }

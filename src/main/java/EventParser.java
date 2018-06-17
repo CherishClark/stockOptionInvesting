@@ -22,6 +22,10 @@ public class EventParser {
             if (identifyEventType(eventString).compareTo("SALE") == 0) {
                 eventsList.add(createSaleEvent(eventString));
             }
+
+            if (identifyEventType(eventString).compareTo("PERF") == 0) {
+                eventsList.add(createPerformanceEvent(eventString));
+            }
         }
 
         String currentMarketInfoString = sc.next();
@@ -80,6 +84,26 @@ public class EventParser {
                 .build();
     }
 
+    private static Event createPerformanceEvent(String eventString) {
+        List<String> performanceEventElements = Arrays.asList((eventString.split(",")));
+        String eventType = performanceEventElements.get(0);
+        String employeeId = performanceEventElements.get(1);
+        BigDecimal perfMultiplier = new BigDecimal(performanceEventElements.get(3));
+        java.util.Date performanceDate = new Date();
+        try {
+            performanceDate = new SimpleDateFormat("yyyymmdd").parse(performanceEventElements.get(2));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return new PerformanceEvent.Builder()
+                .perfMultiplier(perfMultiplier)
+                .eventType(eventType)
+                .eventDate(performanceDate)
+                .employeeId(employeeId)
+                .build();
+
+    }
     private static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString) {
         String[] currentMarketInfo = currentMarketInfoString.split(",");
         BigDecimal marketPrice = new BigDecimal(currentMarketInfo[1]);

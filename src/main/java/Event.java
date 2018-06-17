@@ -60,4 +60,8 @@ public class Event {
 
     }
 
+    public void increaseEventAmount(BigDecimal amount) {
+
+    }
+
 }

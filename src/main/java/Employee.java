@@ -44,9 +44,29 @@ public class Employee implements Comparable<Employee> {
         }
     }
 
+    public void processPerformanceEvent(PerformanceEvent performanceEvent) {
+        List<Event> vestedOptions = returnNonVestedOptions(performanceEvent.getEventDate());
+
+        for (Event option : vestedOptions) {
+            option.increaseEventAmount(performanceEvent.getPerfMultiplier());
+        }
+
+    }
+
     public List<Event> returnVestedOptions (Date currentDate) {
       return employeeRecord.stream().filter(e -> e.getEventType().compareTo("VEST")==0)
                 .filter(event -> event.getEventDate().compareTo(currentDate)<0)
               .collect(Collectors.toList());
+    }
+
+
+    public List<Event> returnNonVestedOptions(Date currentDate) {
+        return employeeRecord.stream().filter(e -> e.getEventType().compareTo("VEST") == 0)
+                .filter(event -> event.getEventDate().compareTo(currentDate) < 0)
+                .collect(Collectors.toList());
+    }
+
+    public void setEmployeeProfit(BigDecimal employeeProfit) {
+        this.employeeProfit = employeeProfit;
     }
 }
