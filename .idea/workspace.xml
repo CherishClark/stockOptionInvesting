@@ -8,15 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4bbe5229-22ea-439b-8247-199ef1546142" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Employee.class" afterPath="$PROJECT_DIR$/out/production/classes/Employee.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/EventProcessor.class" afterPath="$PROJECT_DIR$/out/production/classes/EventProcessor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/SaleEvent.class" afterPath="$PROJECT_DIR$/out/production/classes/SaleEvent.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/VestEvent.class" afterPath="$PROJECT_DIR$/out/production/classes/VestEvent.class" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/Employee.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EventProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/EventProcessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Outputer.java" afterPath="$PROJECT_DIR$/src/main/java/Outputer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SaleEvent.java" afterPath="$PROJECT_DIR$/src/main/java/SaleEvent.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VestEvent.java" afterPath="$PROJECT_DIR$/src/main/java/VestEvent.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Outputer.class" afterPath="$PROJECT_DIR$/out/production/classes/Outputer.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -44,12 +36,12 @@
                     <folding>
                       <element signature="e#787#788#0" expanded="true" />
                       <element signature="e#837#838#0" expanded="true" />
-                      <element signature="e#1567#1568#0" expanded="true" />
-                      <element signature="e#1603#1604#0" expanded="true" />
-                      <element signature="e#1665#1666#0" expanded="true" />
-                      <element signature="e#1715#1716#0" expanded="true" />
-                      <element signature="e#1757#1758#0" expanded="true" />
-                      <element signature="e#1791#1792#0" expanded="true" />
+                      <element signature="e#1566#1567#0" expanded="true" />
+                      <element signature="e#1602#1603#0" expanded="true" />
+                      <element signature="e#1664#1665#0" expanded="true" />
+                      <element signature="e#1714#1715#0" expanded="true" />
+                      <element signature="e#1756#1757#0" expanded="true" />
+                      <element signature="e#1790#1791#0" expanded="true" />
                     </folding>
                   </state>
                 </provider>
@@ -92,10 +84,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
-                <element signature="e#1751#1752#0" expanded="true" />
-                <element signature="e#1787#1788#0" expanded="true" />
+                <element signature="e#1717#1718#0" expanded="true" />
+                <element signature="e#1753#1754#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1140,7 +1132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528676815476</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="refactored to calculate sales profit correct for each employee and to output to display sales profit when expected">
+      <created>1529253214837</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1529253214837</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1305,7 +1304,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating Map for employee's stock options" />
     <MESSAGE value="Implementing ability to create list of stock options and add to an employee's existing list of stock options." />
     <MESSAGE value="Implementing stdin stdout integration test" />
     <MESSAGE value="Implementing stdin stdout integration tests" />
@@ -1330,7 +1328,8 @@
     <MESSAGE value="cleaning up warnings and renaming int tests" />
     <MESSAGE value="renaming int test" />
     <MESSAGE value="adding SaleEvent to parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding SaleEvent to parser" />
+    <MESSAGE value="refactored to calculate sales profit correct for each employee and to output to display sales profit when expected" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored to calculate sales profit correct for each employee and to output to display sales profit when expected" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1672,10 +1671,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
-            <element signature="e#1751#1752#0" expanded="true" />
-            <element signature="e#1787#1788#0" expanded="true" />
+            <element signature="e#1717#1718#0" expanded="true" />
+            <element signature="e#1753#1754#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1695,12 +1694,12 @@
           <folding>
             <element signature="e#787#788#0" expanded="true" />
             <element signature="e#837#838#0" expanded="true" />
-            <element signature="e#1567#1568#0" expanded="true" />
-            <element signature="e#1603#1604#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1715#1716#0" expanded="true" />
-            <element signature="e#1757#1758#0" expanded="true" />
-            <element signature="e#1791#1792#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+            <element signature="e#1602#1603#0" expanded="true" />
+            <element signature="e#1664#1665#0" expanded="true" />
+            <element signature="e#1714#1715#0" expanded="true" />
+            <element signature="e#1756#1757#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
           </folding>
         </state>
       </provider>
