@@ -37,8 +37,10 @@ public class Employee implements Comparable<Employee> {
 
         for (Event option : vestedOptions) {
             option.reduceEventAmount(saleEvent.getAmtSold());
+//            TODO: Casting
             BigDecimal originalPrice = ((VestEvent) option).getStrikePrice();
-            saleEvent.calcProfit(originalPrice);
+            BigDecimal profit = saleEvent.calcProfit(originalPrice);
+            saleEvent.setProfitOfSale(profit);
         }
     }
 

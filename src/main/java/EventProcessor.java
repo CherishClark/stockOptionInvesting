@@ -33,8 +33,10 @@ public class EventProcessor {
 //
             employeesList.add(employee);
 
+            List<Event> employeesEvents = employee.getEmployeeRecord();
+
 //            For each event added to list
-            for (Event event: eventsList) {
+            for (Event event : employeesEvents) {
                 if (event.getEventType().compareTo("VEST") == 0) {
                     determineProfitOfEmployeeVestedOptions(employee);
                 } else if (event.getEventType().compareTo("SALE") == 0){
@@ -42,7 +44,6 @@ public class EventProcessor {
                     employee.processSaleOfStock((SaleEvent)event);
                     employee.setEmployeeSalesProfit(((SaleEvent) event).getProfitOfSale());
                 }
-
             }
 
         }
@@ -53,7 +54,7 @@ public class EventProcessor {
     }
 
     private void determineProfitOfEmployeeVestedOptions(Employee employee) {
-        List<Event> employeeEvents = employee.getEmployeeRecord();
+        List<Event> employeeEvents = employee.getEmployeeRecord().stream().filter(event -> event.getEventType().compareTo("VEST") == 0).collect(Collectors.toList());
 
         employee.employeeProfit = employeeEvents.stream()
                 .filter(e -> {

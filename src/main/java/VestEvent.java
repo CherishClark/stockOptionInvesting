@@ -49,7 +49,7 @@ public class VestEvent extends Event {
     public void reduceEventAmount(BigDecimal amountOfStock) {
         BigDecimal currentAmt = getAmountOfStock();
 
-        if (currentAmt.compareTo(amountOfStock)< 0 ) {
+        if (currentAmt.compareTo(amountOfStock) > 0) {
           setAmountOfStock(currentAmt.subtract(amountOfStock));
         } else {
             setAmountOfStock(BigDecimal.ZERO);

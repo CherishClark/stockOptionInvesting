@@ -35,9 +35,10 @@ public class SaleEvent extends Event {
 
     @Override
     public BigDecimal calcProfit(BigDecimal originalPrice) {
-         salePrice.multiply(amtSold).subtract(originalPrice.multiply(amtSold));
-        return profitOfSale;
+        return salePrice.multiply(amtSold).subtract(originalPrice.multiply(amtSold));
+
     }
+
 
     public BigDecimal getProfitOfSale() {
         return profitOfSale;
@@ -49,5 +50,9 @@ public class SaleEvent extends Event {
 
     public BigDecimal getSalePrice() {
         return salePrice;
+    }
+
+    public void setProfitOfSale(BigDecimal profitOfSale) {
+        this.profitOfSale = profitOfSale;
     }
 }
