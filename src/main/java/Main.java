@@ -5,7 +5,6 @@ public class Main {
         EventInfo eventInfo = EventParser.parseEvents(System.in);
 
         new Outputer(new EventProcessor(eventInfo), System.out);
-
     }
 
 }

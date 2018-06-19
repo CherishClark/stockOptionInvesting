@@ -1,17 +1,22 @@
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Event {
     private final String eventType;
+    private final EventTypes eventTypeEnum;
     private final String employeeId;
-    private final Date eventDate;
+    private final LocalDate eventDate;
 
-
-    public Event(Builder builder) {
+    Event(Builder builder) {
+        this.eventTypeEnum = builder.eventTypeEnum;
         this.eventType = builder.eventType;
         this.employeeId = builder.employeeId;
         this.eventDate = builder.eventDate;
+    }
 
+    public EventTypes getEventTypeEnum() {
+        return eventTypeEnum;
     }
 
     public String getEventType() {
@@ -22,15 +27,20 @@ public class Event {
         return employeeId;
     }
 
-    public Date getEventDate() {
+    public LocalDate getEventDate() {
         return eventDate;
     }
 
     public static class Builder {
+        private EventTypes eventTypeEnum;
         private String eventType;
         private String employeeId;
-        private Date eventDate;
+        private LocalDate eventDate;
 
+        public Builder eventTypeEnum(final EventTypes eventTypeEnum) {
+            this.eventTypeEnum = eventTypeEnum;
+            return this;
+        }
         public Builder eventType(final String eventType) {
             this.eventType = eventType;
             return this;
@@ -41,7 +51,7 @@ public class Event {
             return this;
         }
 
-        public Builder eventDate(final Date eventDate) {
+        public Builder eventDate(final LocalDate eventDate) {
             this.eventDate = eventDate;
             return this;
         }
@@ -54,6 +64,14 @@ public class Event {
 
     public BigDecimal calcProfit(BigDecimal marketPrice) {
         return BigDecimal.ZERO;
+    }
+
+    public void reduceEventAmount(BigDecimal amount){
+
+    }
+
+    public void increaseEventAmount(BigDecimal amount) {
+
     }
 
 }
