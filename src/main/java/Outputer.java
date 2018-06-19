@@ -6,18 +6,17 @@ import java.util.List;
 
 class Outputer {
 
-    private final EventProcessor eventProcessor;
+    private final List<Employee> employeeList;
 
-    Outputer(EventProcessor eventProcessor, OutputStream output) {
+    Outputer(List<Employee> employeeList, OutputStream output) {
 
-        this.eventProcessor = eventProcessor;
-        printEmployeeOutput(eventProcessor, output);
+        this.employeeList = employeeList;
+        printEmployeeOutput(employeeList, output);
     }
 
-    private void printEmployeeOutput(EventProcessor eventProcessor, OutputStream output) {
+    private void printEmployeeOutput(List<Employee> employeeList, OutputStream output) {
         PrintStream printStream = new PrintStream(output);
 
-        List<Employee> employeeList = eventProcessor.getEmployeesList();
         Collections.sort(employeeList);
 
         boolean containsSaleEvent = false;
