@@ -5,15 +5,11 @@ public class SaleEvent extends Event {
     private BigDecimal salePrice;
     private BigDecimal profitOfSale;
 
-    public SaleEvent(Builder builder) {
+    SaleEvent(Builder builder) {
         super(builder);
         this.amtSold = builder.amtSold;
         this.salePrice = builder.salePrice;
     }
-
-
-
-
     public static class Builder extends Event.Builder {
         private BigDecimal amtSold;
         private BigDecimal salePrice;
@@ -36,7 +32,6 @@ public class SaleEvent extends Event {
     @Override
     public BigDecimal calcProfit(BigDecimal originalPrice) {
         return salePrice.multiply(amtSold).subtract(originalPrice.multiply(amtSold));
-
     }
 
 

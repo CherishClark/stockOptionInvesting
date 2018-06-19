@@ -4,20 +4,17 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-public class Outputer {
+class Outputer {
 
     private final EventProcessor eventProcessor;
 
-    public Outputer(EventProcessor eventProcessor, OutputStream output) {
+    Outputer(EventProcessor eventProcessor, OutputStream output) {
 
         this.eventProcessor = eventProcessor;
         printEmployeeOutput(eventProcessor, output);
-
     }
 
-
     private void printEmployeeOutput(EventProcessor eventProcessor, OutputStream output) {
-
         PrintStream printStream = new PrintStream(output);
 
         List<Employee> employeeList = eventProcessor.getEmployeesList();
@@ -27,19 +24,19 @@ public class Outputer {
 
         for (Employee e : employeeList) {
             if (e.employeeProfit == null) {
-                e.setEmployeeProfit(BigDecimal.ZERO.setScale(2));
+                e.setEmployeeProfit(BigDecimal.ZERO.setScale(2, BigDecimal.ROUND_HALF_UP));
             }
 
             if (e.employeeSalesProfit != null) {
                 containsSaleEvent = true;
             }
 
-            if (containsSaleEvent == false)
+            if (!containsSaleEvent)
                 printStream.println(e.getEmployeeId() + "," + e.employeeProfit);
             else {
 //                TODO: refactor this
                 if (e.employeeSalesProfit == null) {
-                    e.setEmployeeSalesProfit(BigDecimal.ZERO.setScale(2));
+                    e.setEmployeeSalesProfit(BigDecimal.ZERO.setScale(2, BigDecimal.ROUND_HALF_UP));
                 }
                 printStream.println(e.getEmployeeId() + "," + e.employeeProfit + "," + e.employeeSalesProfit);
             }

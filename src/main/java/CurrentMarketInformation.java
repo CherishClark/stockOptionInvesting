@@ -1,8 +1,8 @@
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CurrentMarketInformation {
-    private Date marketDate;
+    private LocalDate marketDate;
     private BigDecimal marketPrice;
 
     private CurrentMarketInformation(Builder builder) {
@@ -10,7 +10,7 @@ public class CurrentMarketInformation {
         this.marketPrice = builder.marketPrice;
     }
 
-    public Date getMarketDate() {
+    public LocalDate getMarketDate() {
         return marketDate;
     }
 
@@ -19,10 +19,10 @@ public class CurrentMarketInformation {
     }
 
     public static class Builder {
-        private Date marketDate;
+        private LocalDate marketDate;
         private BigDecimal marketPrice;
 
-        public Builder marketDate(final Date marketDate) {
+        public Builder marketDate(final LocalDate marketDate) {
             this.marketDate = marketDate;
             return this;
         }

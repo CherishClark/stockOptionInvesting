@@ -4,13 +4,11 @@ public class VestEvent extends Event {
     private BigDecimal amountOfStock;
     private BigDecimal strikePrice;
 
-    public VestEvent(Builder builder) {
+    VestEvent(Builder builder) {
         super(builder);
         this.amountOfStock = builder.amountOfStock;
         this.strikePrice = builder.strikePrice;
-
     }
-
 
     public static class Builder extends Event.Builder {
         private BigDecimal amountOfStock;
@@ -54,7 +52,6 @@ public class VestEvent extends Event {
         } else {
             setAmountOfStock(BigDecimal.ZERO);
         }
-
     }
 
     @Override
@@ -63,12 +60,11 @@ public class VestEvent extends Event {
 
     }
 
-
-    public BigDecimal getAmountOfStock() {
+    private BigDecimal getAmountOfStock() {
         return amountOfStock;
     }
 
-    public void setAmountOfStock(BigDecimal amountOfStock) {
+    private void setAmountOfStock(BigDecimal amountOfStock) {
         this.amountOfStock = amountOfStock;
     }
 
