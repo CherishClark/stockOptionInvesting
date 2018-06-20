@@ -2,6 +2,7 @@ import org.junit.Test;
 
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,14 +19,11 @@ public class eventProfitIntTest {
                 "20140101,1.00";
 
         OutputStream output = new java.io.ByteArrayOutputStream();
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
-
         EventInfo eventInfo = EventParser.parseEvents(input);
-
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
-
-        Outputer outputer = new Outputer(eventProcessor, output);
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
 
 
         System.out.println(output.toString());
@@ -44,14 +42,11 @@ public class eventProfitIntTest {
                 "VEST,003B,20130101,1000,0.50\n" +
                 "20120615,1.00\n";
         OutputStream output = new java.io.ByteArrayOutputStream();
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
-
         EventInfo eventInfo = EventParser.parseEvents(input);
-
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
-
-        Outputer outputer = new Outputer(eventProcessor, output);
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
@@ -69,14 +64,11 @@ public class eventProfitIntTest {
                 "PERF,002B,20130102,1.5\n" +
                 "20140101,1.00\n";
         OutputStream output = new java.io.ByteArrayOutputStream();
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
-
         EventInfo eventInfo = EventParser.parseEvents(input);
-
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
-
-        Outputer outputer = new Outputer(eventProcessor, output);
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
 
         System.out.println(output.toString());
         assertEquals("001B,825.00\n" +
@@ -97,14 +89,11 @@ public class eventProfitIntTest {
                 "20130101,1.00\n";
 
         OutputStream output = new java.io.ByteArrayOutputStream();
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
-
         EventInfo eventInfo = EventParser.parseEvents(input);
-
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
-
-        Outputer outputer = new Outputer(eventProcessor, output);
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
 
         System.out.println(output.toString());
         assertEquals("001B,550.00\n" +
@@ -124,15 +113,11 @@ public class eventProfitIntTest {
                 "PERF,002B,20130102,1.5\n" +
                 "20140101,1.00\n";
         OutputStream output = new java.io.ByteArrayOutputStream();
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
-
         EventInfo eventInfo = EventParser.parseEvents(input);
-
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
-
-        Outputer outputer = new Outputer(eventProcessor, output);
-
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
 
         System.out.println(output.toString());
         assertEquals("001B,412.50,275.00\n" +
@@ -151,14 +136,11 @@ public class eventProfitIntTest {
                 "PERF,002B,20130102,1.5\n" +
                 "20130101,1.00\n";
         OutputStream output = new java.io.ByteArrayOutputStream();
-
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
-
         EventInfo eventInfo = EventParser.parseEvents(input);
-
         EventProcessor eventProcessor = new EventProcessor(eventInfo);
-
-        Outputer outputer = new Outputer(eventProcessor, output);
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
 
         System.out.println(output.toString());
         assertEquals("001B,275.00,275.00\n" +

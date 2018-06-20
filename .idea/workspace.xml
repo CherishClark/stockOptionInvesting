@@ -6,24 +6,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bbe5229-22ea-439b-8247-199ef1546142" name="Default" comment="refactored Date to LocalDate&#10;Implemented ENUM for EventTypes">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/EventTypes.java" />
+    <list default="true" id="4bbe5229-22ea-439b-8247-199ef1546142" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Event$Builder.class" afterPath="$PROJECT_DIR$/out/production/classes/Event$Builder.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/Event.class" afterPath="$PROJECT_DIR$/out/production/classes/Event.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/EventParser.class" afterPath="$PROJECT_DIR$/out/production/classes/EventParser.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/EventProcessor.class" afterPath="$PROJECT_DIR$/out/production/classes/EventProcessor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/SaleEvent.class" afterPath="$PROJECT_DIR$/out/production/classes/SaleEvent.class" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CurrentMarketInformation.java" afterPath="$PROJECT_DIR$/src/main/java/CurrentMarketInformation.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Employee.java" afterPath="$PROJECT_DIR$/src/main/java/Employee.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Event.java" afterPath="$PROJECT_DIR$/src/main/java/Event.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EventParser.java" afterPath="$PROJECT_DIR$/src/main/java/EventParser.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/Main.class" afterPath="$PROJECT_DIR$/out/production/classes/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/eventProfitIntTest.class" afterPath="$PROJECT_DIR$/out/test/classes/eventProfitIntTest.class" />
       <change beforePath="$PROJECT_DIR$/src/main/java/EventParserFactory.java" afterPath="$PROJECT_DIR$/src/main/java/EventParserFactory.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EventProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/EventProcessor.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Outputer.java" afterPath="$PROJECT_DIR$/src/main/java/Outputer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SaleEvent.java" afterPath="$PROJECT_DIR$/src/main/java/SaleEvent.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VestEvent.java" afterPath="$PROJECT_DIR$/src/main/java/VestEvent.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/input.txt" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -48,41 +38,28 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="135">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Outputer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Outputer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Outputer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="38" column="97" lean-forward="false" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="97" />
+            <state relative-caret-position="123">
+              <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EventProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-              <folding>
-                <element signature="e#1525#1526#0" expanded="true" />
-                <element signature="e#1561#1562#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventParserFactory.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EventParserFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/EventParserFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="77" column="43" lean-forward="true" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+            <state relative-caret-position="195">
+              <caret line="15" column="58" lean-forward="true" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,17 +70,18 @@
       <file leaf-file-name="VestEvent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/VestEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="62" column="11" lean-forward="false" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
+            <state relative-caret-position="363">
+              <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding>
-                <element signature="e#779#780#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#1740#1741#0" expanded="true" />
-                <element signature="e#1776#1777#0" expanded="true" />
-                <element signature="e#1839#1840#0" expanded="true" />
-                <element signature="e#1889#1890#0" expanded="true" />
-                <element signature="e#1931#1932#0" expanded="true" />
-                <element signature="e#1965#1966#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#897#898#0" expanded="true" />
+                <element signature="e#947#948#0" expanded="true" />
+                <element signature="e#1858#1859#0" expanded="true" />
+                <element signature="e#1894#1895#0" expanded="true" />
+                <element signature="e#1957#1958#0" expanded="true" />
+                <element signature="e#2007#2008#0" expanded="true" />
+                <element signature="e#2049#2050#0" expanded="true" />
+                <element signature="e#2083#2084#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,18 +94,18 @@
               <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
-                <element signature="e#537#538#0" expanded="true" />
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="e#605#606#0" expanded="true" />
-                <element signature="e#642#643#0" expanded="true" />
-                <element signature="e#675#676#0" expanded="true" />
-                <element signature="e#714#715#0" expanded="true" />
-                <element signature="e#746#747#0" expanded="true" />
-                <element signature="e#1527#1528#0" expanded="true" />
-                <element signature="e#1573#1574#0" expanded="true" />
-                <element signature="e#1640#1641#0" expanded="true" />
-                <element signature="e#1678#1679#0" expanded="true" />
+                <element signature="e#500#501#0" expanded="true" />
+                <element signature="e#536#537#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#641#642#0" expanded="true" />
+                <element signature="e#674#675#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#1572#1573#0" expanded="true" />
+                <element signature="e#1639#1640#0" expanded="true" />
+                <element signature="e#1677#1678#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,21 +124,11 @@
       <file leaf-file-name="EventParser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/EventParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="215">
+              <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CurrentMarketInformation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CurrentMarketInformation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -589,18 +557,18 @@
         <option value="$PROJECT_DIR$/src/main/java/EventInfo.java" />
         <option value="$PROJECT_DIR$/src/test/java/inputOutputTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/PerformanceEvent.java" />
-        <option value="$PROJECT_DIR$/src/test/java/eventProfitIntTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/EventTypes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/CurrentMarketInformation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Outputer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/VestEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/SaleEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/Event.java" />
         <option value="$PROJECT_DIR$/src/main/java/EventProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/EventParser.java" />
+        <option value="$PROJECT_DIR$/src/test/java/eventProfitIntTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VestEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/EventParserFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Outputer.java" />
       </list>
     </option>
   </component>
@@ -610,10 +578,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1440" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1372" />
     <option name="y" value="-58" />
-    <option name="width" value="1054" />
+    <option name="width" value="1920" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -1132,19 +1100,24 @@
       <option name="project" value="LOCAL" />
       <updated>1529326985523</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="refactored Date to LocalDate&#10;Implemented ENUM for EventTypes">
+      <created>1529449469968</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1529449469968</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Refactoring event processor to past list of employees to outputer">
+      <created>1529451377324</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1529451377324</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="eventProfitIntTest - 2018.06.19 at 06h 38m 46s.xml">
-      <configuration name="eventProfitIntTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="eventProfitIntTest - 2018.06.19 at 06h 40m 26s.xml">
-      <configuration name="eventProfitIntTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="eventProfitIntTest - 2018.06.19 at 06h 41m 31s.xml">
-      <configuration name="eventProfitIntTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="eventProfitIntTest - 2018.06.19 at 06h 41m 47s.xml">
       <configuration name="eventProfitIntTest" configurationId="JUnit" />
     </history-entry>
@@ -1163,7 +1136,16 @@
     <history-entry file="eventProfitIntTest - 2018.06.19 at 17h 04m 15s.xml">
       <configuration name="eventProfitIntTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="eventProfitIntTest_givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsPriorToPerformanceEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale - 2018.06.19 at 06h 41m 42s.xml">
+    <history-entry file="eventProfitIntTest - 2018.06.19 at 17h 33m 33s.xml">
+      <configuration name="eventProfitIntTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="eventProfitIntTest - 2018.06.19 at 18h 07m 12s.xml">
+      <configuration name="eventProfitIntTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="eventProfitIntTest_givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsPriorToPerformanceEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale - 2018.06.19 at 17h 30m 59s.xml">
+      <configuration name="eventProfitIntTest.givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsPriorToPerformanceEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="eventProfitIntTest_givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsPriorToPerformanceEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale - 2018.06.19 at 17h 33m 28s.xml">
       <configuration name="eventProfitIntTest.givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsPriorToPerformanceEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1171,7 +1153,8 @@
     <option name="totallyTimeSpent" value="46575000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-58" width="1920" height="1057" extended-state="6" />
+    <frame x="1372" y="-58" width="1920" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1182,7 +1165,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4314721" sideWeight="0.23958333" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33096448" sideWeight="0.47395834" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41624364" sideWeight="0.7604167" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41624364" sideWeight="0.7604167" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.49713877" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1296,7 +1279,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Implementing outline for profit calculation method" />
     <MESSAGE value="implementing base java stream function to calculate profit per employee" />
     <MESSAGE value="Implementing complete profit calculation and updating EmployeeStocksOptions to sort by employee." />
     <MESSAGE value="Replacing double with BigDecimal to implement decimal rounding to two decimal places." />
@@ -1321,7 +1303,8 @@
     <MESSAGE value="refactored performance to be excluded if market date is prior to performance date. All tests passing." />
     <MESSAGE value="refacotred parser into factory pattern" />
     <MESSAGE value="refactored Date to LocalDate&#10;Implemented ENUM for EventTypes" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored Date to LocalDate&#10;Implemented ENUM for EventTypes" />
+    <MESSAGE value="Refactoring event processor to past list of employees to outputer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring event processor to past list of employees to outputer" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1510,14 +1493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/src.zip!/java/util/function/Predicate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -1563,14 +1538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/eventProfitIntTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EventInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1595,44 +1562,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/CurrentMarketInformation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="39" column="1" lean-forward="true" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Outputer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="38" column="97" lean-forward="false" selection-start-line="38" selection-start-column="97" selection-end-line="38" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/VestEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="62" column="11" lean-forward="false" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
-          <folding>
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#1740#1741#0" expanded="true" />
-            <element signature="e#1776#1777#0" expanded="true" />
-            <element signature="e#1839#1840#0" expanded="true" />
-            <element signature="e#1889#1890#0" expanded="true" />
-            <element signature="e#1931#1932#0" expanded="true" />
-            <element signature="e#1965#1966#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1647,39 +1581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#642#643#0" expanded="true" />
-            <element signature="e#675#676#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#746#747#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1640#1641#0" expanded="true" />
-            <element signature="e#1678#1679#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="24" column="26" lean-forward="false" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
-          <folding>
-            <element signature="e#1525#1526#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Employee.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1688,23 +1589,106 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#500#501#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#674#675#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1572#1573#0" expanded="true" />
+            <element signature="e#1639#1640#0" expanded="true" />
+            <element signature="e#1677#1678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/VestEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#1858#1859#0" expanded="true" />
+            <element signature="e#1894#1895#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#2007#2008#0" expanded="true" />
+            <element signature="e#2049#2050#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/EventProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="e#1524#1525#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/eventProfitIntTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="140" column="35" lean-forward="false" selection-start-line="140" selection-start-column="35" selection-end-line="140" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EventParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="215">
+          <caret line="19" column="41" lean-forward="true" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EventParserFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" column="43" lean-forward="true" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+        <state relative-caret-position="195">
+          <caret line="15" column="58" lean-forward="true" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Outputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="23" column="41" lean-forward="true" selection-start-line="23" selection-start-column="41" selection-end-line="23" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
