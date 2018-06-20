@@ -33,7 +33,7 @@ class Outputer {
             if (!containsSaleEvent)
                 printStream.println(e.getEmployeeId() + "," + e.employeeProfit);
             else {
-//                TODO: refactor this
+
                 if (e.employeeSalesProfit == null) {
                     e.setEmployeeSalesProfit(BigDecimal.ZERO.setScale(2, BigDecimal.ROUND_HALF_UP));
                 }
