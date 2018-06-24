@@ -32,7 +32,6 @@ public class EventProcessor {
             employeesList.add(employee);
 
             List<Event> employeesEvents = employee.getEmployeeRecord();
-
             processesSaleEvents(employeesEvents, employee);
             processPerformanceEvents(employeesEvents, employee);
             processVestEvents(employeesEvents, employee);

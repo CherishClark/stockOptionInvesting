@@ -1,0 +1,9 @@
+<changelist name="Refactoring_event_processor_to_past_list_of_employees_to_outputer" date="1529852194089" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Refactoring_event_processor_to_past_list_of_employees_to_outputer/shelved.patch" />
+  <option name="DESCRIPTION" value="Refactoring event processor to past list of employees to outputer" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/classes/EventProcessor.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>
