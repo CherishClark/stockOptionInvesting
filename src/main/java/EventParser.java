@@ -1,8 +1,10 @@
+
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,8 +18,9 @@ public class EventParser {
         try {
             for (int i = 0; i < a; i++) {
                 String eventString = sc.next();
-                Event newEvent = new EventParserFactory().makeNewEvent(eventString);
-                eventsList.add(newEvent);
+                String eventType = Arrays.asList((eventString.split(","))).get(0);
+                Event newEvent = EventFactory.getEvent(eventType);
+                eventsList.add(newEvent.createEvent(eventString));
             }
         } catch (Exception e) {
             e.printStackTrace();
