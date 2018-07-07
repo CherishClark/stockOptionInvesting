@@ -1,8 +1,13 @@
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.List;
 
 public class VestEvent extends Event {
     private BigDecimal amountOfStock;
     private BigDecimal strikePrice;
+
 
     VestEvent(Builder builder) {
         super(builder);
@@ -70,6 +75,27 @@ public class VestEvent extends Event {
 
     public BigDecimal getStrikePrice() {
         return strikePrice;
+    }
+
+    @Override
+    public Event createEvent(String eventString) {
+        List<String> vestEventElements = Arrays.asList(eventString.split(","));
+        String eventType = vestEventElements.get(0);
+        String employeeId = vestEventElements.get(1);
+        BigDecimal amountOfStock = new BigDecimal(vestEventElements.get(3));
+        BigDecimal strikePrice = new BigDecimal(vestEventElements.get(4));
+        String dateString = vestEventElements.get(2);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        LocalDate vestDate = LocalDate.parse(dateString, formatter);
+
+        return new VestEvent.Builder()
+                .amountOfStock(amountOfStock)
+                .strikePrice(strikePrice)
+                .eventType(eventType)
+                .employeeId(employeeId)
+                .eventDate(vestDate)
+                .eventTypeEnum(EventTypes.VEST)
+                .build();
     }
 
 }

@@ -74,4 +74,10 @@ public class Event {
 
     }
 
+    public Event createEvent(String eventString) {
+        return new Event.Builder().build();
+    }
+
+    ;
+
 }
