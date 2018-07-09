@@ -14,13 +14,14 @@ public class EventParser {
         Scanner sc = new Scanner(input);
         Integer a = sc.nextInt();
         List<Event> eventsList = new ArrayList<>();
+        String fileDelimiter = "\"\\\\s*\\\\|\\\\s*\"";
 
         try {
             for (int i = 0; i < a; i++) {
                 String eventString = sc.next();
-                String eventType = Arrays.asList((eventString.split(","))).get(0);
+                String eventType = Arrays.asList((eventString.split(fileDelimiter))).get(0);
                 Event newEvent = EventFactory.getEvent(eventType);
-                eventsList.add(newEvent.createEvent(eventString));
+                eventsList.add(newEvent.createEvent(eventString, fileDelimiter));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,7 +32,8 @@ public class EventParser {
 
     }
     private static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString) {
-        String[] currentMarketInfo = currentMarketInfoString.split(",");
+        String fileDelimiter = "\"\\\\s*\\\\|\\\\s*\"";
+        String[] currentMarketInfo = currentMarketInfoString.split(fileDelimiter);
         BigDecimal marketPrice = new BigDecimal(currentMarketInfo[1]);
         String stringDate = currentMarketInfo[0];
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");

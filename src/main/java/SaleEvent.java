@@ -57,8 +57,8 @@ public class SaleEvent extends Event {
     }
 
     @Override
-    public Event createEvent(String eventString) {
-        List<String> saleEventElements = Arrays.asList((eventString.split(",")));
+    public Event createEvent(String eventString, String fileDelimiter) {
+        List<String> saleEventElements = Arrays.asList((eventString.split(fileDelimiter)));
         String eventType = saleEventElements.get(0);
         String employeeId = saleEventElements.get(1);
         BigDecimal amtSold = new BigDecimal(saleEventElements.get(3));
