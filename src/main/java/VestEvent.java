@@ -78,8 +78,8 @@ public class VestEvent extends Event {
     }
 
     @Override
-    public Event createEvent(String eventString) {
-        List<String> vestEventElements = Arrays.asList(eventString.split(","));
+    public Event createEvent(String eventString, String fileDelimiter) {
+        List<String> vestEventElements = Arrays.asList(eventString.split(fileDelimiter));
         String eventType = vestEventElements.get(0);
         String employeeId = vestEventElements.get(1);
         BigDecimal amountOfStock = new BigDecimal(vestEventElements.get(3));

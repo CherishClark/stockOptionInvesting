@@ -148,4 +148,27 @@ public class eventProfitIntTest {
 
     }
 
+    @Test
+    public void pipeDelimitedFile() {
+
+        String string = "5\n" +
+                "VEST|001B|20120102|1000|0.45\n" +
+                "SALE|001B|20120402|500|1.00\n" +
+                "VEST|002B|20120102|1000|0.45\n" +
+                "PERF|001B|20130102|1.5\n" +
+                "PERF|002B|20130102|1.5\n" +
+                "20130101|1.00\n";
+        OutputStream output = new java.io.ByteArrayOutputStream();
+        InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
+        EventInfo eventInfo = EventParser.parseEvents(input);
+        EventProcessor eventProcessor = new EventProcessor(eventInfo);
+        List<Employee> employeeList = eventProcessor.getEmployeesList();
+        Outputer outputer = new Outputer(employeeList, output);
+
+        System.out.println(output.toString());
+        assertEquals("001B,275.00,275.00\n" +
+                "002B,550.00,0.00\n", output.toString());
+
+    }
+
 }

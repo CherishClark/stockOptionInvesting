@@ -74,7 +74,7 @@ public class Event {
 
     }
 
-    public Event createEvent(String eventString) {
+    public Event createEvent(String eventString, String fileDelimiter) {
         return new Event.Builder().build();
     }
 

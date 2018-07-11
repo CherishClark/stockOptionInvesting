@@ -30,8 +30,8 @@ public class PerformanceEvent extends Event {
     }
 
     @Override
-    public Event createEvent(String eventString) {
-        List<String> performanceEventElements = Arrays.asList((eventString.split(",")));
+    public Event createEvent(String eventString, String fileDelimiter) {
+        List<String> performanceEventElements = Arrays.asList((eventString.split(fileDelimiter)));
         String eventType = performanceEventElements.get(0);
         String employeeId = performanceEventElements.get(1);
         BigDecimal perfMultiplier = new BigDecimal(performanceEventElements.get(3));
