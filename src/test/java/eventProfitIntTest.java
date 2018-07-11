@@ -152,7 +152,7 @@ public class eventProfitIntTest {
     public void pipeDelimitedFile() {
 
         String string = "5\n" +
-                "VEST|001B|20120102|10000.45\n" +
+                "VEST|001B|20120102|1000|0.45\n" +
                 "SALE|001B|20120402|500|1.00\n" +
                 "VEST|002B|20120102|1000|0.45\n" +
                 "PERF|001B|20130102|1.5\n" +
