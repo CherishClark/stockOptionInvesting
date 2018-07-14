@@ -3,14 +3,11 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class EventParser {
 
-    public static EventInfo parseEvents(InputStream input) {
+    public static EventInfo parseEvents(InputStream input, Map<String, Event> eventConfiguration) {
         Scanner sc = new Scanner(input);
         Integer a = sc.nextInt();
         List<Event> eventsList = new ArrayList<>();
@@ -20,8 +17,18 @@ public class EventParser {
             for (int i = 0; i < a; i++) {
                 String eventString = sc.next();
                 String eventType = Arrays.asList((eventString.split(fileDelimiter))).get(0);
-                Event newEvent = EventFactory.getEvent(eventType);
-                eventsList.add(newEvent.createEvent(eventString, fileDelimiter));
+                for (Map.Entry<String, Event> event : eventConfiguration.entrySet()) {
+                    if (event.getKey().equals(eventType)) {
+                        Event newEvent = event.getValue();
+                        eventsList.add(newEvent.createEvent(eventString, fileDelimiter));
+
+                    }
+
+
+                }
+//                Event newEvent = EventFactory.getEvent(eventType);
+
+
             }
         } catch (Exception e) {
             e.printStackTrace();
