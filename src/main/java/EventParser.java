@@ -7,7 +7,7 @@ import java.util.*;
 
 public class EventParser {
 
-    public static EventInfo parseEvents(InputStream input, Map<String, Event> eventConfiguration) {
+    public static EventInfo parseEvents(InputStream input, Map<String, Event> eventConfiguration) throws Exception {
         Scanner sc = new Scanner(input);
         Integer a = sc.nextInt();
         List<Event> eventsList = new ArrayList<>();
@@ -21,33 +21,32 @@ public class EventParser {
                     if (event.getKey().equals(eventType)) {
                         Event newEvent = event.getValue();
                         eventsList.add(newEvent.createEvent(eventString, fileDelimiter));
-
                     }
-
-
                 }
-//                Event newEvent = EventFactory.getEvent(eventType);
-
-
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            throw e;
         }
         String currentMarketInfoString = sc.next();
         return new EventInfo(eventsList, createCurrentMarketInfo(currentMarketInfoString, fileDelimiter));
 
     }
 
-    private static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString, String fileDelimiter) {
+    private static CurrentMarketInformation createCurrentMarketInfo(String currentMarketInfoString, String fileDelimiter) throws Exception {
         String[] currentMarketInfo = currentMarketInfoString.split(fileDelimiter);
         BigDecimal marketPrice = new BigDecimal(currentMarketInfo[1]);
         String stringDate = currentMarketInfo[0];
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate marketDate = LocalDate.parse(stringDate, formatter);
-
-        return new CurrentMarketInformation.Builder()
-                .marketDate(marketDate)
-                .marketPrice(marketPrice)
-                .build();
+        CurrentMarketInformation cMI;
+        try {
+            cMI = new CurrentMarketInformation.Builder()
+                    .marketDate(marketDate)
+                    .marketPrice(marketPrice)
+                    .build();
+            return cMI;
+        } catch (Exception e) {
+            throw new Exception("Current Market Info could not be created");
+        }
     }
 }

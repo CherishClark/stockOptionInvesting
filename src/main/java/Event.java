@@ -41,6 +41,7 @@ public class Event {
             this.eventTypeEnum = eventTypeEnum;
             return this;
         }
+
         public Builder eventType(final String eventType) {
             this.eventType = eventType;
             return this;
@@ -66,7 +67,7 @@ public class Event {
         return BigDecimal.ZERO;
     }
 
-    public void reduceEventAmount(BigDecimal amount){
+    public void reduceEventAmount(BigDecimal amount) {
 
     }
 
@@ -74,10 +75,13 @@ public class Event {
 
     }
 
-    public Event createEvent(String eventString, String fileDelimiter) {
-        return new Event.Builder().build();
+    public Event createEvent(String eventString, String fileDelimiter) throws Exception {
+        try {
+            return new Event.Builder().build();
+        } catch (Exception e) {
+            throw new Exception(eventString + "Event could not be created");
+        }
     }
 
-    ;
 
 }

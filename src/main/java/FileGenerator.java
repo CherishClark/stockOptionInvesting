@@ -4,11 +4,11 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-class Outputer {
+class FileGenerator {
 
     private final List<Employee> employeeList;
 
-    Outputer(List<Employee> employeeList, OutputStream output) {
+    FileGenerator(List<Employee> employeeList, OutputStream output) {
 
         this.employeeList = employeeList;
         printEmployeeOutput(employeeList, output);
