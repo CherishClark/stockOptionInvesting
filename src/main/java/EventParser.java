@@ -7,7 +7,7 @@ import java.util.*;
 
 public class EventParser {
 
-    public static EventInfo parseEvents(InputStream input, Map<String, Event> eventConfiguration) throws Exception {
+    public static EventInfo parseEvents(InputStream input, Map<String, createEventFactory> eventConfiguration) throws Exception {
         Scanner sc = new Scanner(input);
         Integer a = sc.nextInt();
         List<Event> eventsList = new ArrayList<>();
@@ -17,10 +17,10 @@ public class EventParser {
             for (int i = 0; i < a; i++) {
                 String eventString = sc.next();
                 String eventType = Arrays.asList((eventString.split(fileDelimiter))).get(0);
-                for (Map.Entry<String, Event> event : eventConfiguration.entrySet()) {
+                for (Map.Entry<String, createEventFactory> event : eventConfiguration.entrySet()) {
                     if (event.getKey().equals(eventType)) {
-                        Event newEvent = event.getValue();
-                        eventsList.add(newEvent.createEvent(eventString, fileDelimiter));
+                        Event newEvent = event.getValue().createEvent(eventString, fileDelimiter);
+                        eventsList.add(newEvent);
                     }
                 }
             }

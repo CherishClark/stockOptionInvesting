@@ -9,9 +9,11 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 
 public class eventProfitIntTest {
+
+    private Map<String, createEventFactory> eventConfiguration = createConfiguration();
+
     @Test
     public void givenCurrentMarketInfo_whenMultipleOptionsForSameAndMultipleEmployees_andMarketDateisAfterAllVestDates_returnProfitPerEmployee() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
         String string = "5\n" +
                 "VEST,001B,20120101,1000,0.45\n" +
                 "VEST,002B,20120101,1500,0.45\n" +
@@ -31,7 +33,6 @@ public class eventProfitIntTest {
 
     @Test
     public void givenCurrentMarketInfo_whenMultipleOptionsForSameAndMultipleEmployees_andMarketDateIsPriorToSomeVestDateofSomeOPtions_returnProfitPerEmployee() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
 
         String string = "5\n" +
                 "VEST,001B,20120101,1000,0.45\n" +
@@ -50,7 +51,6 @@ public class eventProfitIntTest {
 
     @Test
     public void givenCurrentMarketInfo_whenPerformanceIsConsidered_andMarketDateIsAfterAllEventDates_returnProfitPerEmployee() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
 
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
@@ -70,7 +70,6 @@ public class eventProfitIntTest {
 
     @Test
     public void givenCurrentMarketInfo_whenPerformanceIsConsidered_andMarketDateisPriorToPerformanceEventDates_returnProfitPerEmployee() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
 
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
@@ -91,8 +90,6 @@ public class eventProfitIntTest {
 
     @Test
     public void givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsAfterAllEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
-
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
                 "SALE,001B,20120402,500,1.00\n" +
@@ -110,8 +107,6 @@ public class eventProfitIntTest {
 
     @Test
     public void givenCurrentMarketInfo_whenStockOptionsAreSold_andMarketDateIsPriorToPerformanceEventDates_returnTotalProfitPerEmployeeAndProfitThroughSale() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
-
         String string = "5\n" +
                 "VEST,001B,20120102,1000,0.45\n" +
                 "SALE,001B,20120402,500,1.00\n" +
@@ -130,7 +125,7 @@ public class eventProfitIntTest {
 
     @Test
     public void pipeDelimitedFile() throws Exception {
-        Map<String, Event> eventConfiguration = createConfiguration();
+        Map<String, createEventFactory> eventConfiguration = createConfiguration();
 
         String string = "5\n" +
                 "VEST|001B|20120102|1000|0.45\n" +
@@ -147,15 +142,15 @@ public class eventProfitIntTest {
 
     }
 
-    private Map<String, Event> createConfiguration() {
-        Map<String, Event> eventConfiguration = new HashMap<>();
-        eventConfiguration.put("VEST", new VestEvent.Builder().build());
-        eventConfiguration.put("PERF", new PerformanceEvent.Builder().build());
-        eventConfiguration.put("SALE", new SaleEvent.Builder().build());
+    private static Map<String, createEventFactory> createConfiguration() {
+        Map<String, createEventFactory> eventConfiguration = new HashMap<>();
+        eventConfiguration.put("VEST", new createVestEvent());
+        eventConfiguration.put("PERF", new createPerformanceEvent());
+        eventConfiguration.put("SALE", new createSaleEvent());
         return eventConfiguration;
     }
 
-    private OutputStream getOutputStream(Map<String, Event> eventConfiguration, String string) throws Exception {
+    private OutputStream getOutputStream(Map<String, createEventFactory> eventConfiguration, String string) throws Exception {
         OutputStream output = new java.io.ByteArrayOutputStream();
         InputStream input = new java.io.ByteArrayInputStream(string.getBytes());
         EventInfo eventInfo = EventParser.parseEvents(input, eventConfiguration);
