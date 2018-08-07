@@ -58,7 +58,7 @@ public class EventProcessor {
 
         for (Event event : events) {
             if (event.getEventTypeEnum().equals(EventTypes.SALE)) {
-                employee.processSaleOfStock((SaleEvent) event);
+                processSaleOfStock((SaleEvent) event, employee);
                 employee.setEmployeeSalesProfit(((SaleEvent) event).getProfitOfSale());
             }
         }
@@ -68,7 +68,11 @@ public class EventProcessor {
 
         for (Event event : events) {
             if (event.getEventTypeEnum().equals(EventTypes.PERFORMANCE)) {
-                employee.processPerformanceEvent((PerformanceEvent) event);
+                List<Event> vestedOptions = returnNonVestedOptions(event.getEventDate(), employee);
+
+                for (Event option : vestedOptions) {
+                    option.increaseEventAmount(((PerformanceEvent) event).getPerfMultiplier());
+                }
             }
         }
     }
@@ -80,4 +84,28 @@ public class EventProcessor {
             }
         }
     }
+
+    private List<Event> returnVestedOptions(LocalDate currentDate, Employee employee) {
+        return employee.getEmployeeRecord().stream().filter(e -> e.getEventType().compareTo("VEST") == 0)
+                .filter(event -> event.getEventDate().compareTo(currentDate) < 0)
+                .collect(Collectors.toList());
+    }
+
+    public void processSaleOfStock(SaleEvent saleEvent, Employee employee) {
+        List<Event> vestedOptions = returnVestedOptions(saleEvent.getEventDate(), employee);
+
+        for (Event option : vestedOptions) {
+            option.reduceEventAmount(saleEvent.getAmtSold());
+            BigDecimal originalPrice = ((VestEvent) option).getStrikePrice();
+            BigDecimal profit = saleEvent.calcProfit(originalPrice);
+            saleEvent.setProfitOfSale(profit);
+        }
+    }
+
+    private List<Event> returnNonVestedOptions(LocalDate currentDate, Employee employee) {
+        return employee.getEmployeeRecord().stream().filter(e -> e.getEventType().compareTo("VEST") == 0)
+                .filter(event -> event.getEventDate().compareTo(currentDate) < 0)
+                .collect(Collectors.toList());
+    }
+
 }

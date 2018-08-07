@@ -10,10 +10,6 @@ public class EventInfo {
         this.currentMarketInfo = currentMarketInfo;
     }
 
-    public List<Event> getEventsList() {
-        return eventsList;
-    }
-
     public CurrentMarketInformation getCurrentMarketInfo() {
         return currentMarketInfo;
     }
